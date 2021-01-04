@@ -1,0 +1,44 @@
+<h5 class="mb-1">
+    <i [(colorPicker)]=ship.color  [cpOKButton]=true  [style.color]=ship.color  (colorPickerSelect)="handleColorChange($event)" class='xwing-miniatures-ship xwing-miniatures-ship-{{getShipIcon(ship.xws)}}' title={{ship.name}}></i> 
+    <span *ngIf="!editShipName" (click)=handleShipNameClick() [style.text-decoration]="ship.enabled ? '' : 'line-through' ">{{ship.pilot.name}}</span> <small><i *ngIf="!editShipName" class="fa fa-pencil text-secondary" (click)="editShipName = true"></i></small>
+    <input *ngIf="editShipName" type="text" [(ngModel)]="ship.pilot.name" class="form-control-sm"> <button *ngIf="editShipName" (click)="handleShipNameEdit()" class="btn btn-success btn-sm">Save</button>
+    <small>({{halfPoints()}}/{{ship.points}})</small>
+</h5>
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group mr-2" role="group">
+        <button class="btn btn-sm btn-outline-pilotskill" (click)="decrement('skill')"><small><i class="fa fa-minus"></i></small></button>
+        <button class="btn btn-sm btn-outline-pilotskill"><small><strong>In.{{ship.pilotskill}}</strong></small></button>
+        <button class="btn btn-sm btn-outline-pilotskill" (click)="increment('skill')"><small><i class="fa fa-plus"></i></small></button>
+    </div>
+    <div class="btn-group mr-2" role="group">
+        <button class="btn btn-sm btn-outline-warning" (click)="decrement('hull')"><small><i class="fa fa-minus"></i></small></button>
+        <button class="btn btn-sm btn-outline-warning"><small><i class="xwing-miniatures-font xwing-miniatures-font-hull"></i> <strong>{{ship.hull}}</strong></small></button>
+        <button class="btn btn-sm btn-outline-warning" (click)="increment('hull')"><small><i class="fa fa-plus"></i></small></button>
+    </div>
+    <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-outline-shields" (click)="decrement('shields')"><small><i class="fa fa-minus"></i></small></button>
+        <button class="btn btn-sm btn-outline-shields"><small><i class="xwing-miniatures-font xwing-miniatures-font-shield"></i> <strong>{{ship.shields}}</strong></small></button>
+        <button class="btn btn-sm btn-outline-shields" (click)="increment('shields')"><small><i class="fa fa-plus"></i></small></button>
+    </div>
+    <div *ngIf="ship.force>=0" class="btn-group ml-2" role="group">
+        <button class="btn btn-sm btn-outline-force" (click)="decrement('force')"><small><i class="fa fa-minus"></i></small></button>
+        <button class="btn btn-sm btn-outline-force"><small><i class="xwing-miniatures-font xwing-miniatures-font-forcecharge"></i> <strong>{{ship.force}}</strong></small></button>
+        <button class="btn btn-sm btn-outline-force" (click)="increment('force')"><small><i class="fa fa-plus"></i></small></button>
+    </div>
+</div>
+
+<span *ngFor="let upgrade of ship.upgrades; index as i; first as isFirst">
+    <app-ship-upgrade [upgrade]=upgrade (updatedUpgrade)="updateUpgrade($event, i)"></app-ship-upgrade>&nbsp;
+</span>
+
+<p class="no-margin">
+    <small>
+        <select class="form-control-small mt-1" id="critName" (change)="addCrit($event.target.value)">
+            <option value="">-- Add Crit --</option>
+            <option *ngFor="let cl of critList" [value]="cl">{{cl}}</option>
+        </select>
+    </small>
+</p>
+<p class="no-margin">
+    <small *ngFor="let crit of ship.crits" class="text-danger mr-2">{{crit}}<i (click)="removeCrit(crit)" class="fa fa-times" title="Remove Crit"></i></small>
+</p>

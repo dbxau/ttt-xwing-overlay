@@ -1,0 +1,19 @@
+<div class="card border border-white dial-sheet-card">
+    <h5 class="card-header bg-dark text-white"><i class="xwing-miniatures-ship xwing-miniatures-ship-{{getShipIcon(ship)}}"></i> {{ship.name}}</h5>
+    <div class="card-body">
+        <table class="dial-sheet">
+            <ng-container *ngFor="let r of rows">
+                <tr *ngIf="r.use">
+                    <td *ngIf="r.use" class="speed bg-dark text-white">{{r.row}}</td>
+                    <ng-container *ngFor="let c of columns">
+                        <td *ngIf="c.use" class="bg-dark px-2">
+                            <ng-container *ngFor="let m of maneuvers">
+                                <app-dial-maneuver *ngIf="m.location.row == r.row && m.location.col == c.col" [speed]=m.speed [move]=m.move [difficulty]=m.difficulty ></app-dial-maneuver>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="centerFloat">
+  <img *ngFor="let card of cards" src="{{card}}" class="img-fluid m-2 card-image" [style.max-width.px]="size*100">
+  <div *ngIf="ship" class="col-12 mb-3 text-center">
+    <app-dial-sheet [ship]=ship></app-dial-sheet>
+  </div>
+</div>

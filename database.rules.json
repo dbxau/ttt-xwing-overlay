@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "streams": {
+      ".read": "true",
+      ".indexOn": [
+        "user"
+      ],
+      "$streamid": {
+        ".write": "data.child('user').val() === auth.uid || data.child('user').val() === null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".write": "auth != null && auth.uid == $uid",
+        ".read": "auth.uid == $uid"
+      }
+    }
+  }
+}

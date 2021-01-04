@@ -1,0 +1,7 @@
+.drop-shadow {
+    text-shadow: 2px 2px 4px #000000 !important;
+}
+
+div.drop-shadow + app-playback-cards ::ng-deep .dial-sheet-card{
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45) !important;
+}

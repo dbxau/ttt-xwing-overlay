@@ -1,0 +1,92 @@
+
+
+<div *ngIf="player.ships?.length > 0 && !editXWS" class="card text-white bg-dark mt-2">
+  <div class="card-header">
+    <button (click)="editXWS=true" class="btn btn-sm btn-outline-secondary pull-right">Edit XWS</button>
+    <span (click)="debugListOutput()" class="pull-right h5 mr-2">List: {{listPoints()}} pts</span>
+    <h4 *ngIf="!showPlayerNameEditInput">
+      <span (click)="showPlayerNameEditInput=true">{{player.name}} <small><i class="fa fa-pencil text-secondary"></i></small></span>
+      <span class="nowrap small"><input type="checkbox" [checked]="player.hasInitiative" (change)="togglePlayerInitiative()" name="playerInitiative" class="ml-2"> Initiative</span>
+    </h4>
+    <form *ngIf="showPlayerNameEditInput" (submit)="updatePlayerName()">
+        <div class="form-row">
+            <div class="col-auto">
+                <input type="text" [(ngModel)]="player.name" name="name" class="form-control" value="{{player.name}}" />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>    
+        </div>
+    </form>
+  </div>
+  <div class="card-header">
+    <span class="pull-right h5 mr-2">Destroyed {{this.points}} / {{pointsToLead()}}</span>
+    <h5 *ngIf="!showPlayerSubTextEditInput small">
+      <span (click)="showPlayerSubTextEditInput=true">{{player.subText}}<small><i class="fa fa-pencil text-secondary"></i></small></span>
+    </h5>
+    <form *ngIf="showPlayerSubTextEditInput" (submit)="updatePlayerSubText()">
+        <div class="form-row">
+            <div class="col-auto">
+                <input type="text" [(ngModel)]="player.subText" name="subText" class="form-control" value="{{player.subText}}" />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>    
+        </div>
+    </form>
+  </div>
+  <div class="card-body"> 
+    <ul class="list-group bg-dark">
+      <li *ngFor="let ship of player.ships; index as i; first as isFirst; last as isLast" class="list-group-item bg-dark">
+        <button (click)=updateCards(ship) title="Show Ship Cards" class="btn btn-sm btn-outline-secondary pull-right"><i class="fa fa-id-card-o"></i></button>
+        <button (click)=updateDial(ship) title="Show Ship Dial" class="btn btn-sm btn-outline-secondary pull-right"><i class="fa fa-circle-o-notch "></i></button>
+        <div class="btn-group pull-right" role="group">
+          <button *ngIf="!isFirst" (click)=moveShipUp(i) title="Move Ship Up" class="btn btn-sm btn-outline-secondary"><i class="fa fa-caret-up"></i></button>
+          <button *ngIf="!isLast" (click)=moveShipDown(i) title="Move Ship Down" class="btn btn-sm btn-outline-secondary"><i class="fa fa-caret-down"></i></button>
+        </div>
+        <app-ship [ship]=ship (updatedShip)="updateShip($event, i)"></app-ship>
+      </li>
+    </ul> 
+  </div>
+</div>
+
+
+
+<div *ngIf="player.ships?.length <= 0 || editXWS" class="card text-white bg-dark mb-3 mt-2">
+  <div class="card-header">
+    <h4 *ngIf="!showPlayerNameEditInput"><span (click)="showPlayerNameEditInput=true">{{player.name}} <small><i class="fa fa-pencil text-secondary"></i></small></span></h4>
+    <form *ngIf="showPlayerNameEditInput" (submit)="updatePlayerName()">
+        <div class="form-row">
+            <div class="col-auto">
+                <input type="text" [(ngModel)]="player.name" name="name" class="form-control" value="{{player.name}}" />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>    
+        </div>
+    </form>
+  </div>
+  <div class="card-body">
+    <form  #f="ngForm" (ngSubmit)="onSubmitXws(f)">
+      <textarea [(ngModel)]="player.xws" name="xws" class="form-control" placeholder="Paste XWS list here">{{player.xws}}</textarea>
+      <button *ngIf="player.ships?.length > 0" (click)="cancelXWSEdit()" class="btn btn-sm btn-secondary">Cancel</button>
+      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+    </form>
+    <div *ngIf="xwsErrorDisplay" class="alert alert-danger mt-3" role="alert">
+      <p>
+        Oops! Something unexpected has happened with the XWS content you're trying to load.
+        <button (click)="closeXwsErrorDisplay()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+      <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        View Error Content
+      </a>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+         {{xwsErrorDisplay}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,313 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="allowed; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <p class="text-center mt-3">
+                    Checking Auth Status...
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 ">
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[0] [points]="stream.players[1].pointsLost" (updatedPlayer)="updatePlayer($event, 0)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+            </div>
+            <div class="col-md-4 text-center p-xs-3 p-md-2 p-lg-1">
+                <div class="card text-white bg-dark mb-2 mt-1">
+                    <div class="card-header h4 d-flex justify-content-between">
+                        <div class="p-2 mb-0">
+                            <h4 *ngIf="!showStreamNameEditInput">{{stream.name}} <small><i (click)="showStreamNameEditInput=true" class="fa fa-pencil text-secondary"></i></small></h4>
+                            <form *ngIf="showStreamNameEditInput" (submit)="updateStreamName()">
+                                <div class="form-row">
+                                    <div class="col-auto">
+                                        <input type="text" [(ngModel)]="stream.name" name="name" class="form-control" value="{{stream.name}}" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-2 h4 mb-0">
+                            <a href="/stream/{{key}}/live" target="blank">View <i class="fa fa-external-link"></i></a>
+                        </div>
+                        <div class="p-2 h4 mb-0">
+                            <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseMain" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseMain">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Playback: <a href="/stream/{{key}}/live" target="blank">{{host}}/stream/{{key}}/live</a></h5>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        <button (click)=swapSides() class="btn btn-primary"><i class="fa fa-arrow-left"></i> Swap Players <i class="fa fa-arrow-right"></i></button>
+                                    </p>
+                                    <hr>
+                                    <h5>UI Options</h5>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.dropShadow" (change)="toggleOption('dropShadow')" name="dropShadow"> Drop Shadow</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showTimer" (change)="toggleOption('showTimer')" name="showTimer" class="ml-2"> Timer</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showPoints" (change)="toggleOption('showPoints')" name="showPoints" class="ml-2"> Points</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showDice" (change)="toggleOption('showDice')" name="showDice" class="ml-2"> Dice</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showLogo" (change)="toggleOption('showLogo')" name="showLogo" class="ml-2"> TTT Logo</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showSubText" (change)="toggleOption('showSubText')" name="showsubText" class="ml-2"> Player Subtitle</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showCards" (change)="toggleOption('showCards')" name="showCards" class="ml-2"> Cards & Dials</span>
+                                    <div class="form-group row mt-3">
+                                        <label for="fontType" class="col-sm-6 col-form-label">Playback Font</label>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='stream.options.font' (change)="updateStreamFont()" name="font" class="form-control form-control-sm">
+                                                <option value="default">Default</option>
+                                                <option value="audiowide" class="audiowide">Audiowide</option>
+                                                <option value="exo" class="exo">Exo</option>
+                                                <option value="julius" class="julius">Julius</option>
+                                                <option value="oswald" class="oswald">Oswald</option>
+                                                <option value="righteous" class="righteous">Righteous</option>
+                                                <option value="varela" class="varela">Varela</option>
+                                                <option value="vollkorn" class="vollkorn">Vollkorn</option>                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="textColor" class="col-sm-6 col-form-label">Playback Font Color</label>
+                                        <div class="col-sm-6">
+                                            <input [(colorPicker)]=stream.options.textColor (colorPickerChange)="handleColorChange($event)" [style.background]=stream.options.textColor class="form-control form-control-sm" id="textColor" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="playerNameFontSize" class="col-sm-4 col-form-label">Player Name Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.playerNameFontSize" type="range" min="0.5" max="5" step="0.1" name="playerNameFontSize" class="form-control" (change)="setPlayerNameFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.playerNameFontSize" type="number" min="0.5" max="5" step="0.1" name="playerNameFontSize" class="form-control" (change)="setPlayerNameFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="timerFontSize" class="col-sm-4 col-form-label">Timer Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.timer.size" type="range" min="0.5" max="5" step="0.1" name="timerFontSize" class="form-control" (change)="setTimerSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.timer.size" type="number" min="0.5" max="5" step="0.1" name="timerFontSize" class="form-control" (change)="setTimerSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cardSize" class="col-sm-4 col-form-label">Card Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.cardSize" type="range" min="0.5" max="5" step="0.1" name="cardSize" class="form-control" (change)="setCardSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.cardSize" type="number" min="0.5" max="5" step="0.1" name="cardSize" class="form-control" (change)="setCardSize()">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5>Ship Options</h5>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.shipIcons" (change)="toggleOption('shipIcons')" name="shipIcons" class="ml-2"> Ship Icons</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.upgradeIcons" (change)="toggleOption('upgradeIcons')" name="upgradeIcons" class="ml-2"> Upgrade Icons</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showForceCharges" (change)="toggleOption('showForceCharges')" name="showForceCharges" class="ml-2"> Force Charges</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showUpgradeCharges" (change)="toggleOption('showUpgradeCharges')" name="showUpgradeCharges" class="ml-2"> Upgrade Charges</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showPS" (change)="toggleOption('showPS')" name="showPS" class="ml-2"> Pilot Initiative</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showShipPoints" (change)="toggleOption('showShipPoints')" name="showShipPoints" class="ml-2"> Ship Point Values</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.healthAsIcons" (change)="toggleOption('healthAsIcons')" name="healthAsIcons" class="ml-2"> Ship Health as Icons</span>&nbsp;
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.shipDestroyedStrikethrough" (change)="toggleOption('shipDestroyedStrikethrough')" name="shipDestroyedStrikethrough" class="ml-2"> Destroyed Ship Strikethrough</span>&nbsp;
+                                    <div class="form-group row mt-3">
+                                        <label for="shipPSLocation" class="col-sm-6 col-form-label">Initiative Location</label>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='stream.options.shipPSLocation' (change)="updateStreamShipPSLocation()" name="shipPSLocation" class="form-control form-control-sm">
+                                                    <option value="stats">Stats Row</option>
+                                                    <option value="name">Pilot Name Row</option>
+                                                    <option value="icon">Ship Icon</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-3">
+                                        <label for="shipNameFontSize" class="col-sm-4 col-form-label">Ship Name Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.shipNameFontSize" type="range" min="1" max="4" step="0.25" name="shipNameFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.shipNameFontSize" type="number" min="1" max="4" step="0.25" name="shipNameFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="shipStatFontSize" class="col-sm-4 col-form-label">Ship Stat Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.shipStatFontSize" type="range" min="1" max="4" step="0.1" name="shipStatFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.shipStatFontSize" type="number" min="1" max="4" step="0.1" name="shipStatFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="shipUpgradeFontSize" class="col-sm-4 col-form-label">Ship Upgrade Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.shipUpgradeFontSize" type="range" min="0.5" max="2" step="0.1" name="shipUpgradeFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.shipUpgradeFontSize" type="number" min="0.5" max="2" step="0.1" name="shipUpgradeFontSize" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="shipDestroyedOpacity" class="col-sm-4 col-form-label">Destroyed Ship Opacity</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.shipDestroyedOpacity" type="range" min="0.0" max="1" step="0.1" name="shipDestroyedOpacity" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.shipDestroyedOpacity" type="number" min="0.0" max="1" step="0.1" name="shipDestroyedOpacity" class="form-control" (change)="setShipFontSize()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Info Card -->
+                <div class="card text-white bg-dark mb-2">
+                    <div class="card-header h4 d-flex justify-content-between">
+                        <div class="p-2 h4 mb-0">Timer</div>
+                        <div class="p-2 h4 mb-0">
+                            <app-timer-control-slim [timer]="stream.timer" (updatedTimer)="updateStreamTimer($event)"></app-timer-control-slim>
+                        </div>
+
+                        <div class="p-2 h4 mb-0">
+                            <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseTimer" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseTimer">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Timer: <a href="/stream/{{key}}/live/timer" target="blank">{{host}}/stream/{{key}}/live/timer</a></h5>
+                                    <hr>
+                                    <app-timer-control [timer]="stream.timer" (updatedTimer)="updateStreamTimer($event)"></app-timer-control>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Timer Card -->
+
+                <div class="card text-white bg-dark mb-2">
+                    <div class="card-header h4 d-flex justify-content-between">
+                        <div class="p-2 h4 mb-0">Cards &amp; Dials</div>
+                        <div class="p-2 h4 mb-0">
+                            <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseCards" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="collapse" id="collapseCards">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>
+                                        Cards: <a href="/stream/{{key}}/live/cards" title="Standalone Cards" target="blank">{{host}}/stream/{{key}}/live/cards</a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <app-card-control [cards]=stream.cards [ship]=stream.dial (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-card-control>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Card Card -->
+
+                <div class="card text-white bg-dark mb-2">
+                    <div class="card-header h4 d-flex justify-content-between">
+                        <div class="p-2 h4 mb-0">Dice</div>
+                        <div class="p-2 h4 mb-0">
+                            <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseDice" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="collapse" id="collapseDice">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>
+                                        Player 1 Dice: <a href="/stream/{{key}}/live/dice/h/0" title="Player 1 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/0" title="Player 1 Standalone Dice Vertical"
+                                            target="blank">Vertical</a>
+                                    </h5>
+                                    <h5>
+                                        Player 2 Dice: <a href="/stream/{{key}}/live/dice/h/1" title="Player 2 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/1" title="Player 2 Standalone Dice Vertical"
+                                            target="blank">Vertical</a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    <span class="text-danger">
+                                        <kbd>1</kbd> <i class="xwing-miniatures-font xwing-miniatures-font-crit" title="Crit"></i>  
+                                        <kbd class="ml-2">2</kbd> <i class="xwing-miniatures-font xwing-miniatures-font-hit" title="Hit"></i>  
+                                        <kbd class="ml-2">3</kbd> <i class="xwing-miniatures-font xwing-miniatures-font-focus" title="Focus"></i>  
+                                        <kbd class="ml-2">4</kbd><span class="fa-stack mb-1" title="Blank">
+                                            <i class="fa fa-exclamation-triangle fa-stack-1x"></i>
+                                            <i class="fa fa-exclamation fa-stack-1x"></i>
+                                        </span>
+                                    </span>
+                                    <br>
+                                    <span class="text-success">
+                                        <kbd>7</kbd> <i class="xwing-miniatures-font xwing-miniatures-font-evade" title="Evade"></i>  
+                                        <kbd class="ml-2">8</kbd> <i class="xwing-miniatures-font xwing-miniatures-font-focus" title="Focus"></i>  
+                                        <kbd class="ml-2">9</kbd><span class="fa-stack mb-1" title="Blank">
+                                            <i class="fa fa-exclamation-triangle fa-stack-1x"></i>
+                                            <i class="fa fa-exclamation fa-stack-1x"></i>
+                                        </span>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-md-5">
+                                <app-dice-input [dice]=stream.players[0].dice (updatedDice)="updateDice($event, 0)"></app-dice-input>
+                                <app-dice [dice]=stream.players[0].dice></app-dice>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="clearDice()" class="btn btn-outline-secondary">Clear</button>
+                            </div>
+                            <div class="col-md-5">
+                                <app-dice-input [dice]=stream.players[1].dice (updatedDice)="updateDice($event, 1)"></app-dice-input>
+                                <app-dice [dice]=stream.players[1].dice></app-dice>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Dice Card -->
+            </div>
+            <div class="col-md-4">
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[1] [points]="stream.players[0].pointsLost" (updatedPlayer)="updatePlayer($event, 1)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+            </div>
+        </div>
+    </div>
+</ng-template>

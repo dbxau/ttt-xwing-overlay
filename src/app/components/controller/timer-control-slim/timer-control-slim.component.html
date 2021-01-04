@@ -1,0 +1,6 @@
+    {{timeRemainingDisplay()}}
+    <button *ngIf="!timer.running" (click)="startTimer()" class="btn btn-success btn-sm"><i class="fa fa-play"></i></button>
+    <button *ngIf="timer.running && !timer.paused" (click)="pauseTimer()" class="btn btn-success btn-sm"><i class="fa fa-pause"></i></button>
+    <button *ngIf="timer.running && timer.paused" (click)="unpauseTimer()" class="btn btn-success btn-sm"><i class="fa fa-play"></i></button>
+
+    <button (click)="resetTimer()" class="btn btn-danger btn-sm"><i class="fa fa-stop"></i></button>

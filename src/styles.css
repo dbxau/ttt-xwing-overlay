@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+.oswald {
+    font-family: 'Oswald', sans-serif !important;
+}
+
+.varela {
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+.exo {
+    font-family: 'Exo', sans-serif !important;
+}
+
+.righteous {
+    font-family: 'Righteous', cursive !important;
+}
+
+.audiowide {
+    font-family: 'Audiowide', cursive !important;
+}
+
+.vollkorn {
+    font-family: 'Vollkorn SC', serif !important;
+}
+
+.julius {
+    font-family: 'Julius Sans One', sans-serif !important;
+}
+
+body {
+    background-color: transparent !important;
+}

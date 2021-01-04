@@ -1,0 +1,8 @@
+<h1 class="mx-2 player-name" [style.font-size]="options.playerNameFontSize + 'rem'">
+    <i *ngIf="isRight && player.hasInitiative" class="icon-Initiative-blocky-super-simplified"></i>
+    {{player.name}}
+    <i *ngIf="!isRight && player.hasInitiative" class="icon-Initiative-blocky-super-simplified"></i>
+</h1>
+<h4 *ngIf="options.showSubText" class="player-subtitle mx-2" [style.font-size]="options.playerNameFontSize/2 + 'rem'"><span *ngIf="isRight">&nbsp;</span>{{player.subText}}<span *ngIf="!isRight">&nbsp;</span></h4>
+
+

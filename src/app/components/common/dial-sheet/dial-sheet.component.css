@@ -1,0 +1,16 @@
+
+table {
+    border-collapse: unset;
+    border-spacing:1px 1px; 
+    border: 0px;
+    width: 100%;
+}
+
+.speed {
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+td i {
+    vertical-align: text-bottom;
+}

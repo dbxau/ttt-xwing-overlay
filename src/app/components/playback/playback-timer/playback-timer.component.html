@@ -1,0 +1,5 @@
+<!-- <p class="text-center h1 timer-value" [style.font-size.em]="size">{{timeRemainingDisplay()}}</p> -->
+
+<span *ngFor="let t of timeRemainingDisplay()" class="h1 timer-value" [style.font-size.em]="size" [style.width.ch]="timerWidth(t, size)">
+    {{t}}        
+</span>    

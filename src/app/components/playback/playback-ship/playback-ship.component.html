@@ -1,0 +1,48 @@
+<div class="media ship-container" [style.opacity]="ship.enabled ? '1.0' : options.shipDestroyedOpacity ">
+    <span *ngIf="options.shipIcons" [ngClass]="(isShipRight)?'order-2 ml-2':'mr-2'" class="d-flex flex-column align-items-center justify-content-start ship-icon">
+        <span class="h1 mb-0"><i class="xwing-miniatures-ship xwing-miniatures-ship-{{getShipIcon(ship.xws)}} monospace" [style.color]=ship.color></i></span>
+    <span *ngIf="options.showPS && options.shipPSLocation=='icon'" class="ps-text-colour ship-initiative h3">{{ship.pilotskill}}</span>
+    </span>
+    <div [ngClass]="{'order-1': isShipRight}" class="media-body ship-details">
+        <h5 [style.font-size]="options.shipNameFontSize + 'rem'" class="mt-1 mb-0 ship-name">
+            <span *ngIf="options.showPS && !isShipRight && options.shipPSLocation=='name'" class="ps-text-colour ship-initiative">{{ship.pilotskill}}&nbsp;</span>
+            <span [style.text-decoration]="!ship.enabled && options.shipDestroyedStrikethrough ? 'line-through' : '' " class="ship-pilot-name">{{ship.pilot.name}}</span>
+            <small *ngIf="options.showShipPoints" class="ship-points">&nbsp;({{ship.points}})</small>
+            <span *ngIf="options.showPS && isShipRight && options.shipPSLocation=='name'" class="ps-text-colour ship-initiative">&nbsp;{{ship.pilotskill}}</span>
+        </h5>
+        <div [ngClass]="(isShipRight) && (options.healthAsIcons)?'rtl':''">
+            <ng-container *ngIf="!options.healthAsIcons">
+                <span *ngIf="options.showPS && options.shipPSLocation=='stats'" [style.font-size]="options.shipStatFontSize + 'rem'" class="h3 ps-text mr-1 ship-initiative">{{ship.pilotskill}}</span>
+                <i [style.font-size]="options.shipStatFontSize + 'rem'" class='xwing-miniatures-font xwing-miniatures-font-hull hull-icon'></i> <span [style.font-size]="options.shipStatFontSize + 'rem'" class="h3 mr-1 ship-hull-value">{{ship.hull}}</span>
+                <i [style.font-size]="options.shipStatFontSize + 'rem'" class='xwing-miniatures-font xwing-miniatures-font-shield shield-icon'></i> <span [style.font-size]="options.shipStatFontSize + 'rem'" class="h3 ship-shield-value">{{ship.shields}}</span>
+                <span *ngIf="ship.force>=0 && options.showForceCharges" class="ship-force-icon">
+                    <i [style.font-size]="options.shipStatFontSize + 'rem'" class='xwing-miniatures-font xwing-miniatures-font-forcecharge forcecharge-icon'></i> <span [style.font-size]="options.shipStatFontSize + 'rem'" class="h3 ship-force-value">{{ship.force}}</span>
+                </span>
+            </ng-container>
+            <ng-container *ngIf="options.healthAsIcons">
+                <span *ngFor="let hull of hullArray;" class="ship-hull-icon">
+                    <i [style.font-size]="options.shipStatFontSize + 'rem'" class='xwing-miniatures-font xwing-miniatures-font-hull hull-icon'></i>
+                </span>
+                <span *ngFor="let shield of shieldArray;" class="ship-shield-icon">
+                    <i [style.font-size]="options.shipStatFontSize + 'rem'" class='xwing-miniatures-font xwing-miniatures-font-shield shield-icon'></i>
+                </span>
+            </ng-container>
+        </div>
+        <p [style.font-size]="options.shipUpgradeFontSize + 'rem'" class="small">
+            <span *ngFor="let upgrade of ship.upgrades; first as isFirst" class="ship-upgrades">
+                <span *ngIf="!isFirst && !options.upgradeIcons">+ </span>
+            <span class="nowrap ship-upgrade" [style.text-decoration]="upgrade.enabled ? '' : 'line-through' ">
+                    <i *ngIf="options.upgradeIcons" class="ship-upgrade-icon xwing-miniatures-font xwing-miniatures-font-{{getUpgradeIcon(upgrade.type.toLowerCase())}}" [style.font-size]="options.shipUpgradeFontSize + 'rem'"></i>
+                    {{upgrade.name}} 
+                    <span *ngIf="options.showUpgradeCharges" class="ship-upgrade-charge">
+                        <i *ngIf="options.upgradeIcons && upgrade.charges>=0" class="xwing-miniatures-font xwing-miniatures-font-charge" [style.font-size]="options.shipUpgradeFontSize*.8 + 'rem'"></i>
+                        <span *ngIf="!options.upgradeIcons && upgrade.charges>=0" [style.font-size]="options.shipUpgradeFontSize*.8 + 'rem'">x</span>
+            <span [style.font-size]="options.shipUpgradeFontSize*.8 + 'rem'" class="ship-upgrade-charge-value">{{upgrade.charges}}</span>
+            </span>
+            </span>
+            &#8203;
+            </span>
+            <span *ngFor="let crit of ship.crits; let last = last" class="text-danger mr-2 ship-crit"><i class="ship-crit-icon xwing-miniatures-font xwing-miniatures-font-crit" [style.font-size]="options.shipUpgradeFontSize + 'rem'"></i>{{crit}}</span>
+        </p>
+    </div>
+</div>

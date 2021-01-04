@@ -1,0 +1,93 @@
+.btn-outline-pilotskill {
+    color: #CD6D2D;
+    background-color: transparent;
+    background-image: none;
+    border-color: #CD6D2D;
+  }
+  
+  .btn-outline-pilotskill:hover {
+    color: #fff;
+    background-color: #CD6D2D;
+    border-color: #CD6D2D;
+  }
+  
+  .btn-outline-pilotskill:focus, .btn-outline-pilotskill.focus {
+    box-shadow: 0 0 0 3px rgba(255, 168, 7, 0.5);
+  }
+  
+  .btn-outline-pilotskill.disabled, .btn-outline-pilotskill:disabled {
+    color: #CD6D2D;
+    background-color: transparent;
+  }
+  
+  .btn-outline-pilotskill:active, .btn-outline-pilotskill.active,
+  .show > .btn-outline-pilotskill.dropdown-toggle {
+    color: #fff;
+    background-color: #CD6D2D;
+    border-color: #CD6D2D;
+  }
+
+
+  .btn-outline-shields {
+    color: #4da6ff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #4da6ff;
+  }
+  
+  .btn-outline-shields:hover {
+    color: #fff;
+    background-color: #4da6ff;
+    border-color: #4da6ff;
+  }
+  
+  .btn-outline-shields:focus, .btn-outline-shields.focus {
+    box-shadow: 0 0 0 3px rgba(7, 197, 255, 0.5);
+  }
+  
+  .btn-outline-shields.disabled, .btn-outline-shields:disabled {
+    color: #4da6ff;
+    background-color: transparent;
+  }
+  
+  .btn-outline-shields:active, .btn-outline-shields.active,
+  .show > .btn-outline-shields.dropdown-toggle {
+    color: #fff;
+    background-color: #4da6ff;
+    border-color: #4da6ff;
+  }
+
+
+
+  .btn-outline-force {
+    color: #c4a0ca;
+    background-color: transparent;
+    background-image: none;
+    border-color: #c4a0ca;
+  }
+  
+  .btn-outline-force:hover {
+    color: #fff;
+    background-color: #c4a0ca;
+    border-color: #c4a0ca;
+  }
+  
+  .btn-outline-force:focus, .btn-outline-force.focus {
+    box-shadow: 0 0 0 3px rgba(196, 160, 202, 0.5);
+  }
+  
+  .btn-outline-force.disabled, .btn-outline-force:disabled {
+    color: #c4a0ca;
+    background-color: transparent;
+  }
+  
+  .btn-outline-force:active, .btn-outline-force.active,
+  .show > .btn-outline-force.dropdown-toggle {
+    color: #fff;
+    background-color: #c4a0ca;
+    border-color: #c4a0ca;
+  }
+
+.no-margin {
+  margin: 0px !important;
+}

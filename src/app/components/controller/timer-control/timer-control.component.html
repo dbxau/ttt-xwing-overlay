@@ -1,0 +1,17 @@
+<p *ngIf="timer.running" class="text-center h2 monospace">{{timeRemainingDisplay()}}</p>
+<div *ngIf="!timer.running" class="d-flex justify-content-center mb-1">
+    <div class="col-4">
+        <div class="input-group input-group-sm">
+            <input [(ngModel)]="timer.duration" type="number" name="duration" class="form-control">
+            <span class="input-group-addon" id="basic-addon2">Minutes</span>
+        </div>
+    </div>
+</div>
+
+<p class="text-center">
+    <button *ngIf="!timer.running" (click)="startTimer()" class="btn btn-success btn-sm">Start <i class="fa fa-play ml-2"></i></button>
+    <button *ngIf="timer.running && !timer.paused" (click)="pauseTimer()" class="btn btn-success btn-sm">Pause <i class="fa fa-pause ml-2"></i></button>
+    <button *ngIf="timer.running && timer.paused" (click)="unpauseTimer()" class="btn btn-success btn-sm">Play <i class="fa fa-play ml-2"></i></button>
+    
+    <button (click)="resetTimer()" class="btn btn-danger btn-sm">Stop <i class="fa fa-stop ml-2"></i></button>
+</p>

@@ -1,0 +1,16 @@
+<ng-select (change)="addCard($event)" class="form-control mb-2" id="cardSelect" [items]="myOptions"  placeholder="Search for a card to display" >
+</ng-select>
+<div class="text-center pb-2">
+    <button (click)="clearAllCards()" class="btn btn-sm btn-outline-secondary">Clear All</button>
+</div>
+
+<div class="row">
+    <div *ngFor="let card of cards" class="col-6 mb-3 text-center">
+        <img (click)='removeCard(card)' src="{{card}}" class="img-fluid">
+        <i (click)='removeCard(card)' class="fa fa-close text-danger" style="position: absolute; top: 2px; right: 2px; z-index: 100;"></i>
+    </div>
+    <div *ngIf="ship" class="col-12 mb-3 text-center">
+            <app-dial-sheet [ship]=ship></app-dial-sheet>
+    </div>
+</div>
+

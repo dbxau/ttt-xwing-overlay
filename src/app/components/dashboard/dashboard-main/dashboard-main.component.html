@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="auth.user | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-xs-12 mx-auto text-center d-flex flex-column justify-content-center">
+                <div class="card text-white bg-dark my-1">
+
+                    <div *ngIf="auth.loaded">
+                        <div class="card-header">
+                            <h3>Login with</h3>
+                        </div>
+                        <div class="card-body">
+                            <button (click)="auth.googleLogin()" class="btn btn-danger btn-block my-1">
+                                <i class="fa fa-google"></i> Google
+                            </button>
+                            <button (click)="auth.facebookLogin()" class="btn btn-facebook btn-block my-1">
+                                <i class="fa fa-facebook-square"></i> Facebook
+                            </button>   
+                        </div>
+                    </div>
+                    
+                </div> <!-- End Login Card -->       
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-xs-12 mx-auto text-center d-flex flex-column justify-content-center">
+                <div class="p-2">
+                    <app-add-stream></app-add-stream>
+                    <app-stream-list></app-stream-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

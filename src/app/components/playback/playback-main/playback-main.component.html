@@ -1,0 +1,44 @@
+<div class="text-white" [class.drop-shadow]="stream.options.dropShadow" id="playback-body" >
+    <div class="row justify-content-between mx-0">
+        <div class="col-md-3">
+            <app-playback-player-name [player]='stream.players[0]' [options]=stream.options></app-playback-player-name>
+            <div class="row">
+                <div class="col-9 mt-2" [class.mx-2]="!stream.options.shipIcons">
+                    <app-playback-player-list [player]='stream.players[0]' [options]='stream.options'></app-playback-player-list>
+                </div>
+                <div class="col">
+                    <app-playback-dice-vertical *ngIf='stream.options.showDice' [dice]='stream.players[0].dice'></app-playback-dice-vertical>
+                </div>
+            </div> 
+        </div>
+        <div class="col-md-6 text-centre">
+            <div class="d-flex justify-content-between">
+                <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-left">{{stream.players[1].pointsLost}} Points</div>
+                <div class="d-flex flex-column justify-content-start">
+                    <div class="p-2 timer"><app-playback-timer *ngIf='stream.options.showTimer' [timer]='stream.timer' [size]='stream.timer.size'></app-playback-timer></div>   
+                </div>
+                <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-right">{{stream.players[0].pointsLost}} Points</div>
+            </div>
+        </div>
+        <div class="col-md-3 text-right">
+            <app-playback-player-name [player]='stream.players[1]' [options]=stream.options [isRight]=true></app-playback-player-name>
+            <div class="row">
+                <div class="col text-right">
+                    <app-playback-dice-vertical *ngIf='stream.options.showDice' [dice]='stream.players[1].dice'></app-playback-dice-vertical>
+                </div>
+                <div class="col-9 mt-2" [class.mx-2]="!stream.options.shipIcons">
+                    <app-playback-player-list [player]='stream.players[1]' [isRight]=true [options]='stream.options'></app-playback-player-list>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="fixed-bottom">
+        <div class="row justify-content-between">
+            <div class="col-4 mx-auto text-center">
+                <img *ngIf="stream.options.showLogo" src="assets/img/ttt_logo_white.png" class="mb-1">
+            </div>
+        </div>
+    </div>     
+</div>
+<app-playback-cards *ngIf='stream.options.showCards' [cards]="stream.cards" [size]="stream.options.cardSize" [ship]="stream.dial"></app-playback-cards>
+

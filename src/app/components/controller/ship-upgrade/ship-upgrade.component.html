@@ -1,0 +1,9 @@
+<span class="nowrap">
+<i class="xwing-miniatures-font xwing-miniatures-font-{{getUpgradeIcon(upgrade.type.toLowerCase())}}" [style.font-size.em]='1'></i>
+<span (click)="toggleUpgrade()" [style.text-decoration]="upgrade.enabled ? '' : 'line-through' ">{{upgrade.name}}</span>
+<span *ngIf="upgrade.charges>=0">[</span>
+<span *ngIf="upgrade.charges>0" (click)="decrement()">-</span>
+<span *ngIf="upgrade.charges>=0"><i class="xwing-miniatures-font xwing-miniatures-font-charge" [style.font-size.em]='1'></i>{{upgrade.charges}}</span>
+<span *ngIf="upgrade.charges>=0" (click)="increment()">+</span>
+<span *ngIf="upgrade.charges>=0">]</span>
+</span>

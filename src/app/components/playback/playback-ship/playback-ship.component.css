@@ -1,0 +1,55 @@
+.hull-icon {
+	color: #ffe066;
+  font-size:30px;
+  vertical-align: text-bottom;
+}
+.shield-icon {
+	color: #4da6ff;
+  font-size:30px;
+  vertical-align: text-bottom;
+}
+.forcecharge-icon {
+  color: #c4a0ca;
+  font-size:30px;
+  vertical-align: text-bottom;
+}
+.ship-upgrade-icon {
+  vertical-align: text-bottom;
+}
+
+.ps-text {
+	color: #CD6D2D;
+  font-size:30px;
+}
+
+.ps-text-colour {
+	color: #CD6D2D;
+}
+
+.order-1 {
+    order:1;
+}
+
+.order-2 {
+    order:2;
+}
+
+.monospace {
+  display: inline-block; /* Enable widths */
+  width: 1em;            /* Set width across all characters */
+  text-align: center;    /* Even out spacing */
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.rtl {
+  direction: rtl;
+}
+.ship-icon i{
+  line-height: 0.75em;
+}
+.ship-icon .ship-initiative{
+  line-height: 0.75em;
+}

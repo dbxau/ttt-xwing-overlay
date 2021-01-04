@@ -1,0 +1,23 @@
+<nav class="navbar bg-dark navbar-expand-lg navbar-dark justify-content-between">
+  <a class="navbar-brand" [routerLink]="['/']"><img src="assets/img/ttt_logo_white_sm.png" alt=""></a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link">Home</a>  
+      </li>
+      <li class="nav-item">
+        <a routerLink="/about" class="nav-link">About</a>  
+      </li>
+      <li class="nav-item">
+        <a href="https://xwstream.tabletop.to" class="nav-link">First Edition Stream <i class="fa fa-external-link"></i></a>  
+      </li>
+    </ul>
+    <a href="https://tabletop.to" target="blank" class="btn btn-sm align-middle btn-primary">Tournament Management <i class="fa fa-external-link"></i></a>  
+    <button *ngIf="auth.user | async" (click)="auth.signOut()" class="btn btn-sm align-middle btn-outline-secondary ml-2" href="#">Logout</button>  
+  </div>
+</nav>

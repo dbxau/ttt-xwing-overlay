@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="centerFloat">
+            <img *ngFor="let card of stream.cards" src="{{card}}" class="img-fluid m-2 card-image" [style.max-width.px]="stream.options.cardSize*100">
+            <div *ngIf="stream.dial" class="col-12 mb-3 text-center">
+                <app-dial-sheet [ship]=stream.dial></app-dial-sheet>
+            </div>
+        </div>
+    </div>
+</div>

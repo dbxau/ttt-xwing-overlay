@@ -1,0 +1,18 @@
+<ul *ngIf="streams?.length > 0;else noStreams" class="list-group">
+    <div *ngFor="let stream of streams" class="list-group-item d-flex justify-content-start align-items-center">
+        <div class="p-2">
+            <a [routerLink]="['/stream/'+stream.key]">{{stream.name}}</a>
+        </div>
+        <div class="ml-auto p-2">
+          <button [routerLink]="['/stream/'+stream.key]" class="btn btn-sm btn-outline-primary"><i class="fa fa-gear"></i></button>
+          <a [routerLink]="['/stream/'+stream.key+'/live']" class="btn btn-sm btn-outline-primary"><i class="fa fa-television"></i></a>
+          <button (click)="onDeleteClick(stream.key)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>
+        </div>
+    </div>
+</ul>
+
+
+<ng-template #noStreams>
+  <hr>
+  <h5>Couldn't find any saved streams - create a new one!</h5>
+</ng-template>
