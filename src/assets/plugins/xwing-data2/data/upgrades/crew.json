@@ -92,7 +92,7 @@
         "ffg": 335
       }
     ],
-    "cost": { "value": 12 },
+    "cost": { "value": 16 },
     "restrictions": [{ "factions": ["Galactic Empire"] }],
     "hyperspace": false
   },
@@ -150,7 +150,7 @@
         "ffg": 354
       }
     ],
-    "cost": { "value": 4 },
+    "cost": { "value": 2 },
     "restrictions": [{ "factions": ["Scum and Villainy"] }],
     "hyperspace": true
   },
@@ -176,7 +176,7 @@
         "ffg": 304
       }
     ],
-    "cost": { "value": 8 },
+    "cost": { "value": 7 },
     "restrictions": [{ "factions": ["Rebel Alliance"] }],
     "hyperspace": true
   },
@@ -272,7 +272,7 @@
         "ffg": 382
       }
     ],
-    "cost": { "value": 4 },
+    "cost": { "value": 3 },
     "restrictions": [{ "factions": ["Scum and Villainy"] }],
     "hyperspace": false
   },
@@ -291,7 +291,7 @@
         "ffg": 337
       }
     ],
-    "cost": { "value": 6 },
+    "cost": { "value": 4 },
     "restrictions": [
       { "factions": ["Galactic Empire"] },
       { "action": { "type": "Coordinate" } }
@@ -335,7 +335,7 @@
     ],
     "cost": { "value": 14 },
     "restrictions": [{ "factions": ["Galactic Empire"] }],
-    "hyperspace": false
+    "hyperspace": true
   },
   {
     "name": "Death Troopers",
@@ -405,7 +405,7 @@
         "ffg": 341
       }
     ],
-    "cost": { "value": 11 },
+    "cost": { "value": 12 },
     "restrictions": [{ "factions": ["Galactic Empire"] }],
     "hyperspace": true
   },
@@ -442,7 +442,7 @@
         "ffg": 466
       }
     ],
-    "cost": { "value": 6 },
+    "cost": { "value": 3 },
     "restrictions": [{ "factions": ["First Order"] }],
     "hyperspace": false
   },
@@ -462,7 +462,7 @@
         "ffg": 272
       }
     ],
-    "cost": { "value": 8 },
+    "cost": { "value": 5 },
     "hyperspace": false
   },
   {
@@ -568,7 +568,7 @@
         "ffg": 344
       }
     ],
-    "cost": { "value": 3 },
+    "cost": { "value": 1 },
     "restrictions": [{ "factions": ["Galactic Empire"] }],
     "hyperspace": false
   },
@@ -607,7 +607,7 @@
         "ffg": 358
       }
     ],
-    "cost": { "value": 6 },
+    "cost": { "value": 11 },
     "restrictions": [{ "factions": ["Scum and Villainy"] }],
     "hyperspace": false
   },
@@ -626,7 +626,7 @@
         "ffg": 309
       }
     ],
-    "cost": { "value": 2 },
+    "cost": { "value": 3 },
     "restrictions": [{ "factions": ["Rebel Alliance"] }],
     "hyperspace": false
   },
@@ -686,7 +686,7 @@
         "ffg": 467
       }
     ],
-    "cost": { "value": 11 },
+    "cost": { "value": 9 },
     "restrictions": [{ "factions": ["First Order"] }],
     "hyperspace": false
   },
@@ -716,7 +716,7 @@
     ],
     "cost": { "value": 4 },
     "restrictions": [{ "factions": ["Scum and Villainy"] }],
-    "hyperspace": false
+    "hyperspace": true
   },
   {
     "name": "Lando Calrissian",
@@ -810,7 +810,7 @@
         "ffg": 313
       }
     ],
-    "cost": { "value": 7 },
+    "cost": { "value": 5 },
     "restrictions": [{ "factions": ["Rebel Alliance"] }],
     "hyperspace": false
   },
@@ -874,7 +874,7 @@
         "ffg": 346
       }
     ],
-    "cost": { "value": 8 },
+    "cost": { "value": 7 },
     "restrictions": [
       { "factions": ["Galactic Empire"] },
       { "action": { "type": "Coordinate" } }
@@ -915,7 +915,7 @@
         "ffg": 274
       }
     ],
-    "cost": { "value": 4 },
+    "cost": { "value": 2 },
     "hyperspace": true
   },
   {
@@ -951,7 +951,7 @@
         "ffg": 468
       }
     ],
-    "cost": { "value": 4 },
+    "cost": { "value": 3 },
     "restrictions": [{ "factions": ["First Order"] }],
     "hyperspace": false
   },
@@ -1114,7 +1114,7 @@
         "ffg": 277
       }
     ],
-    "cost": { "value": 6 },
+    "cost": { "value": 3 },
     "restrictions": [
       { "action": { "type": "Coordinate", "difficulty": "Red" } }
     ],
@@ -1330,7 +1330,7 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/a91424eea1db4aeaf24ab49d5a519e27.jpg"
       }
     ],
-    "cost": { "value": 10 },
+    "cost": { "value": 14 },
     "restrictions": [{ "factions": ["Separatist Alliance"] }],
     "hyperspace": true
   },
@@ -1378,7 +1378,7 @@
     "limited": 1,
     "xws": "ga97",
     "hyperspace": false,
-    "cost": { "value": 6 },
+    "cost": { "value": 5 },
     "restrictions": [{ "factions": ["Resistance"] }],
     "sides": [
       {
@@ -1390,7 +1390,7 @@
         "grants": [
           {
             "type": "action",
-            "value": { "type": "Coordinate", "difficulty": "White" }
+            "value": { "type": "Calculate", "difficulty": "White" }
           }
         ],
         "ffg": 582,
@@ -1461,7 +1461,7 @@
     "limited": 1,
     "xws": "leiaorgana-resistance",
     "hyperspace": true,
-    "cost": { "value": 17 },
+    "cost": { "value": 16 },
     "restrictions": [{ "factions": ["Resistance"] }],
     "sides": [
       {
@@ -1526,7 +1526,7 @@
         ]
       }
     ],
-    "cost": { "value": 8 },
+    "cost": { "value": 7 },
     "limited": 1,
     "hyperspace": true,
     "xws": "c3po-republic"
@@ -1557,13 +1557,13 @@
         "image": "https://sb-cdn.fantasyflightgames.com/card_images/en/c75b7f3eaadb889b7b94d020c0d81d29.png"
       }
     ],
-    "cost": { "value": 16 }
+    "cost": { "value": 14 }
   },
   {
     "name": "Agent Terex",
     "limited": 1,
     "xws": "agentterex",
-    "hyperspace": false,
+    "hyperspace": true,
     "sides": [
       {
         "ability": "Setup: Equip this side faceup and place 3 calculate tokens on this card. At the start of the Engagement Phase, you may choose a friendly ship at range 0-3 and remove 1 calculate token from this card to have that ship gain a matching token. Then, if there are no calculate tokens on this card, flip it.",
@@ -1602,8 +1602,14 @@
             "type": "action",
             "value": {
               "type": "Calculate",
-              "difficulty": "White",
-              "linked": { "type": "Jam", "difficulty": "White" }
+              "difficulty": "White"
+            }
+          },
+          {
+            "type": "action",
+            "value": {
+              "type": "Jam",
+              "difficulty": "White"
             }
           }
         ],
@@ -1612,7 +1618,7 @@
         "image": "https://sb-cdn.fantasyflightgames.com/card_images/en/bd3d6c3227984bc0f5daacebdc7d92ad.png"
       }
     ],
-    "cost": { "value": 7 }
+    "cost": { "value": 6 }
   },
   {
     "name": "Plo Koon",
@@ -1622,6 +1628,7 @@
     "sides": [
       {
         "ability": "At the start of the End Phase, if you are reinforced, you may choose 1 friendly ship at range 0 or in your [Left Arc] or [Right Arc] at range 1. That ship removes 1 deplete or strain token, or repairs 1 faceup damage card.",
+        "force": { "value": 1, "recovers": 1 },
         "title": "Plo Koon",
         "type": "Crew",
         "slots": ["Crew"],
@@ -1636,7 +1643,7 @@
         "image": "https://sb-cdn.fantasyflightgames.com/card_images/en/1f07b416e509fa27d4005c8d25452e06.png"
       }
     ],
-    "cost": { "value": 10 }
+    "cost": { "value": 9 }
   },
   {
     "name": "Toryn Farr",
@@ -1676,6 +1683,7 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/2b1f84f53e0a2fe6f49dbdef202b6adb.jpg",
         "image": "https://sb-cdn.fantasyflightgames.com/card_images/en/d531840147286ab5b43eb5989d6eb8ec.png",
         "ability": "At the start of the Engagement Phase, you may choose 1 friendly ship at range 0-1 and spend 1 [Force]. If you do, it may perform a red [Evade] action.",
+        "force": { "value": 1, "recovers": 1 },
         "grants": [
           {
             "type": "action",
@@ -1685,7 +1693,7 @@
       }
     ],
     "name": "Kit Fisto",
-    "cost": { "value": 9 },
+    "cost": { "value": 8 },
     "limited": 1,
     "xws": "kitfisto",
     "hyperspace": true
@@ -1710,7 +1718,7 @@
       }
     ],
     "name": "Yoda",
-    "cost": { "value": 15 },
+    "cost": { "value": 12 },
     "limited": 1,
     "xws": "yoda",
     "hyperspace": true
@@ -1773,10 +1781,10 @@
       }
     ],
     "name": "Commander Malarus",
-    "cost": { "value": 7 },
+    "cost": { "value": 6 },
     "limited": 1,
     "xws": "commandermalarus",
-    "hyperspace": false
+    "hyperspace": true
   },
   {
     "sides": [
@@ -1840,7 +1848,7 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/9345f2eadd69a3f1ea2f44648a17d9b2.jpg"
       }
     ],
-    "cost": { "value": 6 }
+    "cost": { "value": 5 }
   },
   {
     "name": "Jango Fett",
@@ -1858,7 +1866,10 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/3a7ec5348f98da20c7b17b91535a3dd2.jpg"
       }
     ],
-    "cost": { "value": 7 }
+    "cost": { "value": 6 },
+    "restrictions": [
+      { "factions": ["Scum and Villainy", "Separatist Alliance"] }
+    ]
   },
   {
     "name": "Zam Wesell",
@@ -1878,6 +1889,54 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/b8819288e0722a11e26d15ecd0b2717f.jpg"
       }
     ],
-    "cost": { "value": 4 }
+    "cost": { "value": 11 },
+    "restrictions": [
+      { "factions": ["Scum and Villainy", "Separatist Alliance"] }
+    ]
+  },
+  {
+    "name": "Gamut Key",
+    "limited": 1,
+    "xws": "gamutkey",
+    "hyperspace": true,
+    "sides": [
+      {
+        "ability": "At the start of the End Phase, you may spend 2 [Charge] to choose a ship at range 0-1 with 1 or more circular tokens. During the End Phase, circular tokens are not removed from that ship.",
+        "title": "Gamut Key",
+        "charges": { "value": 2, "recovers": 1 },
+        "type": "Crew",
+        "slots": ["Crew"],
+        "ffg": 919,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/d6faf9522ae2569b7a125b6a84d5df9a.jpg"
+      }
+    ],
+    "cost": { "value": 6 },
+    "restrictions": [{ "factions": ["Scum and Villainy"] }]
+  },
+  {
+    "name": "Protectorate Gleb",
+    "limited": 1,
+    "xws": "protectorategleb",
+    "hyperspace": true,
+    "sides": [
+      {
+        "ability": "After you coordinate a friendly ship, you may transfer 1 orange or red token to the ship you coordinated.",
+        "title": "Protectorate Gleb",
+        "type": "Crew",
+        "slots": ["Crew"],
+        "grants": [
+          {
+            "type": "action",
+            "value": { "type": "Coordinate", "difficulty": "Red" }
+          }
+        ],
+        "ffg": 920,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/70c7a4a5786d2067e293d182d1fc44b2.jpg"
+      }
+    ],
+    "cost": { "value": 6 },
+    "restrictions": [
+      { "factions": ["Scum and Villainy", "Galactic Empire", "First Order"] }
+    ]
   }
 ]

@@ -42,7 +42,7 @@
       "caption": "Ruthless Tactician",
       "initiative": 2,
       "limited": 1,
-      "cost": 45,
+      "cost": 42,
       "xws": "vizier",
       "ability": "After you fully execute a speed 1 maneuver using your Adaptive Ailerons ship ability, you may perform a [Coordinate] action. If you do, skip your Perform Action step.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_115.png",
@@ -53,7 +53,8 @@
       "slots": ["Crew", "Crew", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_115.jpg",
       "ffg": 115,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Captain Feroph",
@@ -71,7 +72,8 @@
       "slots": ["Talent", "Crew", "Crew", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_114.jpg",
       "ffg": 114,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Major Vermeil",
@@ -89,7 +91,8 @@
       "slots": ["Talent", "Crew", "Crew", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_113.jpg",
       "ffg": 113,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Scarif Base Pilot",
@@ -112,7 +115,8 @@
       "slots": ["Crew", "Crew", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_116.jpg",
       "ffg": 116,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["TIE"]
     }
   ]
 }

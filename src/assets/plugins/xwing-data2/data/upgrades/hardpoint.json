@@ -10,6 +10,21 @@
         "title": "Ion Cannon Battery",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
+        "attack": {
+          "arc": "Single Turret Arc",
+          "value": 4,
+          "minrange": 2,
+          "maxrange": 4,
+          "ordnance": false
+        },
+        "ffg": 736,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/b7837b3c19f0e0e552a3e2024ada0080.jpg"
+      },
+      {
+        "ability": "Offline: After you engage, you may spend 2 [Energy] to flip this card.",
+        "title": "Ion Cannon Battery (Offline)",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint"],
         "grants": [
           {
             "type": "action",
@@ -18,14 +33,6 @@
         ],
         "ffg": 737,
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/64d964f87f3c406a380a4e3d23f8adff.jpg"
-      },
-      {
-        "ability": "Offline After you engage, you may spend 2 [Energy] to flip this card.",
-        "title": "Ion Cannon Battery (Offline)",
-        "type": "Hardpoint",
-        "slots": ["Hardpoint"],
-        "ffg": 736,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/b7837b3c19f0e0e552a3e2024ada0080.jpg"
       }
     ],
     "cost": { "value": 5 }
@@ -41,16 +48,16 @@
         "title": "Ordnance Tubes",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
-        "ffg": 741,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/704417993312731838f68390884c699d.jpg"
+        "ffg": 740,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/1c29cf92ae4254dcc6d6e01649440928.jpg"
       },
       {
-        "ability": "Offline You must treat the [Front Arc] requirement of your equipped [Torpedo] and [Missile] upgrades as [Bullseye Arc]. Action: Spend 2 [Energy] to flip this card.",
+        "ability": "Offline: You must treat the [Front Arc] requirement of your equipped [Torpedo] and [Missile] upgrades as [Bullseye Arc]. Action: Spend 2 [Energy] to flip this card.",
         "title": "Ordnance Tubes (Offline)",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
-        "ffg": 740,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/1c29cf92ae4254dcc6d6e01649440928.jpg"
+        "ffg": 741,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/704417993312731838f68390884c699d.jpg"
       }
     ],
     "cost": { "value": 1 }
@@ -72,16 +79,23 @@
             "value": { "type": "Rotate Arc", "difficulty": "White" }
           }
         ],
-        "ffg": 743,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/190fb055e605840f31474e7c0d908f3a.jpg"
-      },
+        "attack": {
+          "arc": "Single Turret Arc",
+          "value": 2,
+          "minrange": 1,
+          "maxrange": 2,
+          "ordnance": false
+        },
+        "ffg": 742,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/19ff0f46629df40158546791f897b55b.jpg"
+      },  
       {
-        "ability": "Offline After you engage, you may spend 2 [Energy] to flip this card.",
+        "ability": "Offline: After you engage, you may spend 2 [Energy] to flip this card.",
         "title": "Point-Defense Battery (Offline)",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
-        "ffg": 742,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/19ff0f46629df40158546791f897b55b.jpg"
+        "ffg": 743,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/190fb055e605840f31474e7c0d908f3a.jpg"
       }
     ],
     "cost": { "value": 9 }
@@ -103,19 +117,26 @@
             "value": { "type": "Rotate Arc", "difficulty": "White" }
           }
         ],
-        "ffg": 739,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/f8b2128da475099b9d362e26f04b8e55.jpg"
+        "attack": {
+          "arc": "Single Turret Arc",
+          "value": 3,
+          "minrange": 2,
+          "maxrange": 5,
+          "ordnance": false
+        },
+        "ffg": 738,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/b60587c3fead89e24b6990a2adb1131c.jpg"
       },
       {
-        "ability": "Offline After you engage, you may spend 2 [Energy] to flip this card.",
+        "ability": "Offline: After you engage, you may spend 2 [Energy] to flip this card.",
         "title": "Targeting Battery (Offline)",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
-        "ffg": 738,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/b60587c3fead89e24b6990a2adb1131c.jpg"
+        "ffg": 739,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/f8b2128da475099b9d362e26f04b8e55.jpg"
       }
     ],
-    "cost": { "value": 6 }
+    "cost": { "value": 5 }
   },
   {
     "name": "Turbolaser Battery",
@@ -134,18 +155,158 @@
             "value": { "type": "Rotate Arc", "difficulty": "White" }
           }
         ],
-        "ffg": 745,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/4962c14923b8a068cd8ba6ac34ebd443.jpg"
+        "attack": {
+          "arc": "Single Turret Arc",
+          "value": 3,
+          "minrange": 3,
+          "maxrange": 5,
+          "ordnance": false
+        },
+        "ffg": 744,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/3a88323269e88afa9557ec1b2fe46925.jpg"
       },
       {
-        "ability": "Offline After you engage, you may spend 2 [Energy] to flip this card.",
+        "ability": "Offline: After you engage, you may spend 2 [Energy] to flip this card.",
         "title": "Turbolaser Battery (Offline)",
         "type": "Hardpoint",
         "slots": ["Hardpoint"],
-        "ffg": 744,
-        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/3a88323269e88afa9557ec1b2fe46925.jpg"
+        "ffg": 745,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/4962c14923b8a068cd8ba6ac34ebd443.jpg"
       }
     ],
-    "cost": { "value": 13 }
+    "cost": { "value": 10 }
+  },
+  {
+    "name": "Tractor Tentacles",
+    "limited": 0,
+    "xws": "tractortentacles",
+    "hyperspace": false,
+    "restrictions": [
+      { "sizes": ["Huge"] },
+      { "ships": ["tridentclassassaultship"] }
+    ],
+    "sides": [
+      {
+        "ability": "Setup: Equip this side faceup. Bonus Attack. Bonus Attack: Spend 1 [Energy]. Bonus Attack: Spend 1 [Energy]. Bonus Attack: Spend 1 [Energy]. Bonus Attack: Spend 1 [Energy].",
+        "title": "Tractor Tentacles",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint"],
+        "attack": {
+          "arc": "Rear Arc",
+          "value": 2,
+          "minrange": 1,
+          "maxrange": 2,
+          "ordnance": true
+        },
+        "ffg": 742,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/60c195f4af8e303047b0633161c42a7d.jpg"
+      },
+      {
+        "ability": "Action: Spend 1 [Energy] to repair this card.",
+        "title": "Tractor Tentacles (Offline)",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint"],
+        "ffg": 743,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/4c1ea70c43bf582038cc80d0836b74e7.jpg"
+      }
+    ],
+    "cost": { "value": 0 }
+  },
+  {
+    "name": "Proton Cannon Battery",
+    "limited": 0,
+    "xws": "protoncannonbattery",
+    "hyperspace": false,
+    "sides": [
+      {
+        "ability": "Setup: Equip this side faceup. Bonus Attack: Change 1 [Hit] result to a [Critical Hit] result. Bonus Attack: Spend 1 [Energy]. Change 1 [Hit] result to a [Critical Hit] result.",
+        "title": "Proton Cannon Battery",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "attack": {
+          "arc": "Bullseye Arc",
+          "value": 4,
+          "minrange": 2,
+          "maxrange": 5,
+          "ordnance": false
+        },
+        "ffg": 742,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/97c81b90378cf7ff53587f74af561ea1.jpg"
+      },
+      {
+        "ability": "Action: Spend 1 [Energy] to repair this card.",
+        "title": "Proton Cannon Battery (Offline)",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "ffg": 743,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/bbdc9a802049e98132ee424f4c2bc0ec.jpg"
+      }
+    ],
+    "cost": { "value": 10 }
+  },
+  {
+    "name": "Enhanced Propulsion",
+    "limited": 0,
+    "xws": "enhancedpropulsion",
+    "hyperspace": false,
+    "sides": [
+      {
+        "ability": "Setup: Equip this side faceup. At the start of the End Phase, you may spend 2 [Energy] to execute a white [2 [Straight]], [1 [Bank Left]], or [1 [Bank Right]] maneuver.",
+        "title": "Enhanced Propulsion",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "ffg": 123,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/97c81b90378cf7ff53587f74af561ea1.jpg"
+      },
+      {
+        "ability": "Action: Spend 1 [Energy] to repair this card.",
+        "title": "Enhanced Propulsion (Offline)",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "ffg": 123,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/bbdc9a802049e98132ee424f4c2bc0ec.jpg"
+      }
+    ],
+    "cost": { "value": 6 },
+    "restrictions": [
+      { "sizes": ["Huge"] },
+      { "ships": ["tridentclassassaultship"] }
+    ]
+  },
+  {
+    "name": "Drill Beak",
+    "limited": 0,
+    "xws": "drillbeak",
+    "hyperspace": false,
+    "sides": [
+      {
+        "ability": "Setup: Equip this side faceup. You can perform this attack at range 0. Bonus Attack: Spend 1 [Energy]. If the attack range is 0, change all [Hit] results to [Critical Hit] results.",
+        "title": "Drill Beak",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "attack": {
+          "arc": "Rear Arc",
+          "value": 3,
+          "minrange": 0,
+          "maxrange": 1,
+          "ordnance": true
+        },
+        "ffg": 123,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/97c81b90378cf7ff53587f74af561ea1.jpg"
+      },
+      {
+        "ability": "Action: Spend 1 [Energy] to repair this card.",
+        "title": "Drill Beak (Offline)",
+        "type": "Hardpoint",
+        "slots": ["Hardpoint", "Cargo"],
+        "ffg": 123,
+        "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/bbdc9a802049e98132ee424f4c2bc0ec.jpg"
+      }
+    ],
+    "cost": { "value": 4 },
+    "restrictions": [
+      { "sizes": ["Huge"] },
+      { "ships": ["tridentclassassaultship"] }
+    ]
   }
 ]

@@ -40,56 +40,60 @@
       "caption": "Obsidian Leader",
       "initiative": 5,
       "limited": 1,
-      "cost": 44,
+      "cost": 41,
       "xws": "howlrunner",
       "ability": "While a friendly ship at range 0-1 performs a primary attack, that ship may reroll 1 attack die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_81.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_81.jpg",
       "ffg": 81,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "\"Mauler\" Mithel",
       "caption": "Black Two",
       "initiative": 5,
       "limited": 1,
-      "cost": 30,
+      "cost": 28,
       "xws": "maulermithel",
       "ability": "While you perform an attack at attack range 1, roll 1 additional attack die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_80.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_80.jpg",
       "ffg": 80,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "\"Night Beast\"",
       "caption": "Obsidian Two",
       "initiative": 2,
       "limited": 1,
-      "cost": 25,
+      "cost": 23,
       "xws": "nightbeast",
       "ability": "After you fully execute a blue maneuver, you may perform a [Focus] action.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_88.png",
       "slots": ["Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_88.jpg",
       "ffg": 88,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "\"Scourge\" Skutu",
       "caption": "Seasoned Veteran",
       "initiative": 5,
       "limited": 1,
-      "cost": 30,
+      "cost": 28,
       "xws": "scourgeskutu",
       "ability": "While you perform an attack against a defender in your [Bullseye Arc], roll 1 additional attack die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_82.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_82.jpg",
       "ffg": 82,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "\"Wampa\"",
@@ -104,7 +108,8 @@
       "slots": ["Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_89.jpg",
       "ffg": 89,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Academy Pilot",
@@ -123,7 +128,8 @@
       "slots": ["Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_92.jpg",
       "ffg": 92,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["TIE"]
     },
     {
       "name": "Black Squadron Ace",
@@ -142,35 +148,38 @@
       ],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_90.jpg",
       "ffg": 90,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["TIE"]
     },
     {
       "name": "Del Meeko",
       "caption": "Inferno Three",
       "initiative": 4,
       "limited": 1,
-      "cost": 29,
+      "cost": 27,
       "xws": "delmeeko",
       "ability": "While a friendly ship at range 0-2 defends against a damaged attacker, the defender may reroll 1 defense die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_85.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_85.jpg",
       "ffg": 85,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Gideon Hask",
       "caption": "Inferno Two",
       "initiative": 4,
       "limited": 1,
-      "cost": 29,
+      "cost": 27,
       "xws": "gideonhask",
       "ability": "While you perform an attack against a damaged defender, roll 1 additional attack die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_84.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_84.jpg",
       "ffg": 84,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Iden Versio",
@@ -185,7 +194,8 @@
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_83.jpg",
       "ffg": 83,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Obsidian Squadron Pilot",
@@ -204,35 +214,38 @@
       "slots": ["Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_91.jpg",
       "ffg": 91,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["TIE"]
     },
     {
       "name": "Seyn Marana",
       "caption": "Inferno Four",
       "initiative": 4,
       "limited": 1,
-      "cost": 29,
+      "cost": 27,
       "xws": "seynmarana",
       "ability": "While you perform an attack, you may spend 1 [Critical Hit] result. If you do, deal 1 facedown damage card to the defender, then cancel your remaining results.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_86.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_86.jpg",
       "ffg": 86,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Valen Rudor",
       "caption": "Braggadocious Baron",
       "initiative": 3,
       "limited": 1,
-      "cost": 26,
+      "cost": 24,
       "xws": "valenrudor",
       "ability": "After a friendly ship at range 0-1 defends (after damage is resolved, if any), you may perform an action.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_87.png",
       "slots": ["Talent", "Modification"],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_87.jpg",
       "ffg": 87,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     }
   ]
 }

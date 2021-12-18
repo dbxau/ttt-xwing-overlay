@@ -1,5 +1,5 @@
 {
-  "version": "2.1.2",
+  "version": "2.5.2",
   "damagedecks": ["data/damage-decks/core.json"],
   "factions": ["data/factions/factions.json"],
   "stats": ["data/stats/stats.json"],
@@ -50,6 +50,7 @@
         "data/pilots/scum-and-villainy/quadrijet-transfer-spacetug.json",
         "data/pilots/scum-and-villainy/scurrg-h-6-bomber.json",
         "data/pilots/scum-and-villainy/starviper-class-attack-platform.json",
+        "data/pilots/scum-and-villainy/trident-class-assault-ship.json",
         "data/pilots/scum-and-villainy/yv-666-light-freighter.json",
         "data/pilots/scum-and-villainy/z-95-af4-headhunter.json"
       ]
@@ -86,7 +87,8 @@
         "data/pilots/resistance/t-70-x-wing.json",
         "data/pilots/resistance/resistance-transport.json",
         "data/pilots/resistance/resistance-transport-pod.json",
-        "data/pilots/resistance/fireball.json"
+        "data/pilots/resistance/fireball.json",
+        "data/pilots/resistance/bta-nr2-y-wing.json"
       ]
     },
     {
@@ -99,7 +101,9 @@
         "data/pilots/first-order/tie-sf-fighter.json",
         "data/pilots/first-order/tie-vn-silencer.json",
         "data/pilots/first-order/upsilon-class-command-shuttle.json",
-        "data/pilots/first-order/xi-class-light-shuttle.json"
+        "data/pilots/first-order/xi-class-light-shuttle.json",
+        "data/pilots/first-order/tie-se-bomber.json",
+        "data/pilots/first-order/tie-wi-whisper-modified-interceptor.json"
       ]
     },
     {
@@ -113,6 +117,7 @@
         "data/pilots/separatist-alliance/nantex-class-starfighter.json",
         "data/pilots/separatist-alliance/droid-tri-fighter.json",
         "data/pilots/separatist-alliance/hmp-droid-gunship.json",
+        "data/pilots/separatist-alliance/trident-class-assault-ship.json",
         "data/pilots/separatist-alliance/firespray-class-patrol-craft.json"
       ]
     },

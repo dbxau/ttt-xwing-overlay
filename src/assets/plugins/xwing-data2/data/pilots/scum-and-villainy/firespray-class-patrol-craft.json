@@ -44,7 +44,7 @@
       "caption": "Notorious Bounty Hunter",
       "initiative": 5,
       "limited": 1,
-      "cost": 86,
+      "cost": 85,
       "xws": "bobafett",
       "ability": "While you defend or perform an attack, you may reroll 1 of your dice for each enemy ship at range 0-1.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_149.png",
@@ -52,9 +52,9 @@
         "Talent",
         "Cannon",
         "Missile",
-        "Crew",
         "Device",
         "Illicit",
+        "Modification",
         "Modification",
         "Title"
       ],
@@ -66,7 +66,8 @@
       ],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_149.jpg",
       "ffg": 149,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["Bounty Hunter"]
     },
     {
       "name": "Bounty Hunter",
@@ -87,7 +88,8 @@
       ],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_154.jpg",
       "ffg": 154,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["Bounty Hunter"]
     },
     {
       "name": "Emon Azzameen",
@@ -117,7 +119,7 @@
       "caption": "Captain of the Binayre Pirates",
       "initiative": 4,
       "limited": 1,
-      "cost": 72,
+      "cost": 68,
       "xws": "kathscarlet",
       "ability": "While you perform a primary attack, if there is at least 1 friendly non-limited ship at range 0 of the defender, roll 1 additional attack die.",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/Card_Pilot_151.png",
@@ -156,7 +158,8 @@
       ],
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/Card_art_XW_P_152.jpg",
       "ffg": 152,
-      "hyperspace": false
+      "hyperspace": false,
+      "keywords": ["Bounty Hunter"]
     },
     {
       "name": "Krassis Trelix",

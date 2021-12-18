@@ -5,14 +5,43 @@
   "faction": "Galactic Empire",
   "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_Raider.png",
   "size": "Huge",
-  "stats": [],
-  "actions": [],
+  "dial": [
+    "0BR",
+    "0OR",
+    "0NR",
+    "1BB",
+    "1NB",
+    "1FW",
+    "2BW",
+    "2NW",
+    "2FB",
+    "3BR",
+    "3NR",
+    "3FB",
+    "4FW",
+    "5FR"
+  ],
+  "dialCodes": ["RDR-I"],
+  "stats": [
+    { "arc": "Full Front Arc", "type": "attack", "value": 4 },
+    { "type": "agility", "value": 0 },
+    { "type": "hull", "value": 20 },
+    { "type": "shields", "value": 8, "recovers": 2 },
+    { "type": "energy", "value": 6, "recovers": 2 }
+  ],
+  "actions": [
+    { "difficulty": "White", "type": "Focus" },
+    { "difficulty": "White", "type": "Lock" },
+    { "difficulty": "White", "type": "Coordinate" },
+    { "difficulty": "White", "type": "Reinforce" },
+    { "difficulty": "White", "type": "Jam" }
+  ],
   "pilots": [
     {
       "ffg": 707,
       "name": "Outer Rim Patrol",
       "initiative": 8,
-      "cost": 146,
+      "cost": 134,
       "limited": 0,
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/bbcb9af1eb386d2855f34e7ffa730528.jpg",
       "shipAbility": {
@@ -22,7 +51,20 @@
       "text": "The Raider-class corvette is one of the Empire's smallest warships, often used for reconnaissance missions, surgical strikes, or suppressing enemy starfighters with its powerful ordnance.",
       "hyperspace": false,
       "engagement": 0,
-      "xws": "outerrimpatrol"
+      "xws": "outerrimpatrol",
+      "slots": [
+        "Command",
+        "Torpedo",
+        "Missile",
+        "Hardpoint",
+        "Hardpoint",
+        "Crew",
+        "Crew",
+        "Team",
+        "Team",
+        "Cargo",
+        "Title"
+      ]
     }
   ]
 }

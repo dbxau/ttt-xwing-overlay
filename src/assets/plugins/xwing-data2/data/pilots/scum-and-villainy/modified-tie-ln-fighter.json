@@ -39,7 +39,7 @@
       "caption": "Vengeful Survivor",
       "initiative": 3,
       "limited": 1,
-      "cost": 30,
+      "cost": 28,
       "xws": "ahhav",
       "ability": "While you defend or perform an attack, if the enemy ship is a larger size than you, roll 1 additional die.",
       "shipAbility": {
@@ -50,7 +50,8 @@
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/2d162fae88ae58b9eca31f7dc0b7a9da.jpg",
       "slots": ["Talent", "Modification"],
       "ffg": 442,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Captain Seevor",
@@ -69,14 +70,15 @@
       },
       "slots": ["Talent", "Modification"],
       "ffg": 443,
-      "hyperspace": false
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Foreman Proach",
       "caption": "Slave Driver",
       "initiative": 4,
       "limited": 1,
-      "cost": 32,
+      "cost": 29,
       "xws": "foremanproach",
       "ability": "Before you engage, you may choose 1 enemy ship in your [Bullseye Arc] at range 1-2 and gain 1 disarm token. If you do, that ship gains 1 tractor token.",
       "shipAbility": {
@@ -87,7 +89,8 @@
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/f789aa53866112fc44fd27ed9e177993.jpg",
       "slots": ["Talent", "Modification"],
       "ffg": 441,
-      "hyperspace": false
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Mining Guild Surveyor",
@@ -104,14 +107,15 @@
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/ad058d0b6d46f668f06bf0007207a30a.jpg",
       "slots": ["Talent", "Modification"],
       "ffg": 445,
-      "hyperspace": true
+      "hyperspace": false,
+      "keywords": ["TIE"]
     },
     {
       "name": "Overseer Yushyn",
       "caption": "Overbearing Boss",
       "initiative": 2,
       "limited": 1,
-      "cost": 26,
+      "cost": 24,
       "xws": "overseeryushyn",
       "ability": "Before a friendly ship at range 1 would gain a disarm token, if that ship is not stressed, you may spend 1 [Charge]. If you do, that ship gains 1 stress token instead.",
       "shipAbility": {
@@ -123,7 +127,8 @@
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/1f454eb7c12b572103e59a9a782c3f50.jpg",
       "slots": ["Modification"],
       "ffg": 444,
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["TIE"]
     },
     {
       "name": "Mining Guild Sentry",
@@ -140,7 +145,8 @@
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/09c955b8008750a30fe398c200431160.jpg",
       "slots": ["Modification"],
       "ffg": 446,
-      "hyperspace": true
+      "hyperspace": false,
+      "keywords": ["TIE"]
     }
   ]
 }

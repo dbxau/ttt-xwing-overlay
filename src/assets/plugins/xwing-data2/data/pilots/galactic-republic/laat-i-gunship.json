@@ -20,6 +20,7 @@
     "3YR",
     "4FR"
   ],
+  "dialCodes": ["LAT"],
   "faction": "Galactic Republic",
   "stats": [
     { "arc": "Double Turret Arc", "type": "attack", "value": 2 },
@@ -41,7 +42,7 @@
       "xws": "hawk",
       "caption": "Valkyrie 2929",
       "initiative": 4,
-      "cost": 54,
+      "cost": 51,
       "charges": { "value": 2, "recovers": 1 },
       "slots": [
         "Talent",
@@ -61,7 +62,8 @@
         "text": "While a friendly ship performs a non-[Single Turret Arc] attack, if the defender is in your [Single Turret Arc], you may spend 1 [Charge]. If you do, the attacker rerolls up to 2 attack dice."
       },
       "ability": "At the start of the End Phase, each friendly ship at range 0-1 that has a revealed maneuver of speed 3-5 may gain 1 strain token to perform a [Barrel Roll] or [Boost] action.",
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["Clone"]
     },
     {
       "ffg": 662,
@@ -69,7 +71,7 @@
       "xws": "hound",
       "caption": "Vigilant Tracker",
       "initiative": 2,
-      "cost": 50,
+      "cost": 48,
       "charges": { "value": 2, "recovers": 1 },
       "slots": [
         "Missile",
@@ -88,7 +90,8 @@
         "text": "While a friendly ship performs a non-[Single Turret Arc] attack, if the defender is in your [Single Turret Arc], you may spend 1 [Charge]. If you do, the attacker rerolls up to 2 attack dice."
       },
       "ability": "After a friendly small ship in your [Single Turret Arc] gains a deplete or strain token, if you have no tokens of that type, you may transfer that token to yourself.",
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["Clone"]
     },
     {
       "ffg": 661,
@@ -96,7 +99,7 @@
       "xws": "warthog",
       "caption": "Veteran of Kadavo",
       "initiative": 3,
-      "cost": 54,
+      "cost": 52,
       "charges": { "value": 2, "recovers": 1 },
       "slots": [
         "Missile",
@@ -115,7 +118,8 @@
         "text": "While a friendly ship performs a non-[Single Turret Arc] attack, if the defender is in your [Single Turret Arc], you may spend 1 [Charge]. If you do, the attacker rerolls up to 2 attack dice."
       },
       "ability": "After you or a friendly non-limited ship at range 0-2 are destroyed during the Engagement Phase, that ship is not removed until the end of that phase.",
-      "hyperspace": true
+      "hyperspace": true,
+      "keywords": ["Clone"]
     },
     {
       "name": "212th Battalion Pilot",
@@ -124,7 +128,7 @@
       "xws": "212thbattalionpilot",
       "text": "Capable of functioning in space assaults and atmospheric battles alike, the LAAT/i gunship transports Republic troops to battlefronts on planets besieged by the Separatists.",
       "hyperspace": false,
-      "cost": 49,
+      "cost": 47,
       "charges": { "value": 2, "recovers": 1 },
       "slots": [
         "Missile",
@@ -141,7 +145,8 @@
       "shipAbility": {
         "name": "Fire Convergence",
         "text": "While a friendly ship performs a non-[Single Turret Arc] attack, if the defender is in your [Single Turret Arc], you may spend 1 [Charge]. If you do, the attacker rerolls up to 2 attack dice."
-      }
+      },
+      "keywords": ["Clone"]
     }
   ],
   "icon": "https://squadbuilder.fantasyflightgames.com/ship_types/I_LAAT_Republic_Gunship.png"

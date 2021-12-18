@@ -20,6 +20,7 @@
     "3YR",
     "4FW"
   ],
+  "dialCodes": ["Xi"],
   "faction": "First Order",
   "stats": [
     { "arc": "Front Arc", "type": "attack", "value": 2 },
@@ -40,7 +41,7 @@
       "caption": "Devious Provocateur",
       "xws": "agentterex",
       "initiative": 3,
-      "cost": 42,
+      "cost": 38,
       "slots": [
         "Talent",
         "Crew",
@@ -64,12 +65,12 @@
       "caption": "Vindictive Taskmaster",
       "xws": "commandermalarus-xiclasslightshuttle",
       "initiative": 5,
-      "cost": 45,
+      "cost": 44,
       "slots": ["Talent", "Crew", "Crew", "Modification", "Tech", "Tech"],
       "limited": 1,
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/9fc217ecda8e05095b2e4d5957a474ba.jpg",
       "image": "https://sb-cdn.fantasyflightgames.com/card_images/en/9ab5691b7e1e7761cff3c6bd71b4257e.png",
-      "ability": "While a friendly ship at range 0-2 performs a primary attack, if it has 1 or more blank results, that ship must gain 1 strain token to reroll 1 blank result, if able.",
+      "ability": "While a friendly ship at range 0-2 performs a primary attack, before the Modify Dice step, if it has 1 or more blank results, that ship must gain 1 strain token to reroll 1 blank result, if able.",
       "hyperspace": true
     },
     {
@@ -77,7 +78,7 @@
       "name": "First Order Courier",
       "xws": "firstordercourier",
       "initiative": 2,
-      "cost": 38,
+      "cost": 35,
       "slots": ["Crew", "Crew", "Modification", "Tech", "Tech"],
       "limited": 0,
       "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/85aadb1aa3100fe7e92296ca0465f58b.jpg",
