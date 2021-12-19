@@ -18,18 +18,12 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "node_modules/xwing-data",
-                "output": "/xwing-data"
-              }
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/xwing-miniatures-font/dist/xwing-miniatures.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css"
             ],
             "scripts": [
@@ -91,7 +85,6 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/xwing-miniatures-font/dist/xwing-miniatures.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css"
             ],
             "assets": [

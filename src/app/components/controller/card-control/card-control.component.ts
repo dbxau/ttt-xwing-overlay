@@ -41,6 +41,8 @@ export class CardControlComponent implements OnInit {
     let tempDamageDeckTFA: Array<NgOption> = [];
     let tempConditionOptions: Array<NgOption> = [];
 
+    const cardImagesPath:String = "/assets/cards";
+
     //load in xwing-data2 manifest
     this.http.get('assets/plugins/xwing-data2/data/manifest.json').subscribe(data => {
       this.manifest = data;
@@ -63,8 +65,8 @@ export class CardControlComponent implements OnInit {
           this.pilotdata.pilots.map(p => {
             //if(p.image !== undefined){
               this.myOptions = this.myOptions.concat({
-                label: 'Pilot: '+p.name+'('+this.pilotdata.name+')'+(p.image == undefined?' [Missing Image]':""),
-                value: (p.image !== undefined?p.image:"")
+                label: 'Pilot: '+p.name+'('+this.pilotdata.name+')',
+                value: (cardImagesPath+"/pilots/"+p.xws+".png")
               });
             //}
           });
@@ -90,16 +92,15 @@ export class CardControlComponent implements OnInit {
           this.upgradedata.map(upgrade => {
             if(upgrade.sides !== undefined){
               upgrade.sides.map(side => {
-                if(side.images !== undefined){
+                if(this.myOptions.some(function(el){ return el.value === cardImagesPath+"/upgrades/"+upgrade.xws+".png"})){
                   this.myOptions = this.myOptions.concat({
-                    label: 'Upgrade: '+side.title+' ('+side.type+')'+(side.images == undefined?' [Missing Image]':""),
-                    value: (side.images !== undefined?side.images:"")
+                    label: 'Upgrade: '+side.title+' ('+side.type+')',
+                    value: (cardImagesPath+"/upgrades/"+upgrade.xws+"-sideb.png")
                   });
-                }
-                if(side.image !== undefined){
+                }else{
                   this.myOptions = this.myOptions.concat({
-                    label: 'Upgrade: '+side.title+' ('+side.type+')'+(side.image == undefined?' [Missing Image]':""),
-                    value: (side.image !== undefined?side.image:"")
+                    label: 'Upgrade: '+side.title+' ('+side.type+')',
+                    value: (cardImagesPath+"/upgrades/"+upgrade.xws+".png")
                   });
                 }
               });
