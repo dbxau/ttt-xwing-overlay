@@ -106,10 +106,10 @@ export class PlayerListComponent implements OnInit {
 
   updateCards(ship:Ship){
     this.cards = [];
-    this.cards.push(ship.pilot.image);
+    this.cards.push("/assets/cards/pilots/"+ship.pilot.xws+".png");
     if(ship.upgrades){
       ship.upgrades.forEach(u => {
-        this.cards.push(u.image);
+        this.cards.push("/assets/cards/upgrades/"+u.xws+".png");
       });
     }
     this.updatedCards.emit(this.cards);
@@ -198,8 +198,12 @@ export class PlayerListComponent implements OnInit {
               break;
             case "oddballywing":
               pilot.id = "oddball-btlbywing";
+              break;
             case "alexsandrkallus":
               pilot.id = "alexandrkallus";
+              break;
+            case "tpusk":
+              pilot.id = "tapusk";
               break;
             default:
               break;
