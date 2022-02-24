@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 ">
-                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[0] [points]="stream.players[1].pointsLost" (updatedPlayer)="updatePlayer($event, 0)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[0] [opponent]=stream.players[1] [points]="stream.players[1].pointsLost" [maxPoints]="stream.options.maxPoints" (updatedPlayer)="updatePlayer($event, 0)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
             </div>
             <div class="col-md-4 text-center p-xs-3 p-md-2 p-lg-1">
                 <div class="card text-white bg-dark mb-2 mt-1">
@@ -64,9 +64,32 @@
                                         <button (click)=swapSides() class="btn btn-primary"><i class="fa fa-arrow-left"></i> Swap Players <i class="fa fa-arrow-right"></i></button>
                                     </p>
                                     <hr>
+                                    <h5>Game Options</h5>
+                                    <div class="form-group row">
+                                        <label for="maxPoints" class="col-sm-6 col-form-label">Maximum Points</label>
+                                        <div class="col-sm-6">
+                                            <input [(ngModel)]="stream.options.maxPoints" type="number" min="1" max="1000" step="1" name="maxPoints" class="form-control" (change)="setMaxPoints()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="scenarioName" class="col-sm-6 col-form-label">Scenario</label>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='stream.options.scenarioName' (change)="updateStreamScenarioName()" name="scenarioNameSelect" class="form-control form-control-sm">
+                                                <option value="">None</option>
+                                                <option value="Assault at the Satellite Array">Assault at the Satellite Array</option>
+                                                <option value="Chance Engagement">Chance Engagement</option>
+                                                <option value="Salvage Mission">Salvage Mission</option>
+                                                <option value="Scramble the Transmissions">Scramble the Transmissions</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <input [(ngModel)]="stream.options.scenarioName" type="text" name="scenarioName" class="form-control" (change)="updateStreamScenarioName()">
+                                    <hr>
                                     <h5>UI Options</h5>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.dropShadow" (change)="toggleOption('dropShadow')" name="dropShadow"> Drop Shadow</span>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.showTimer" (change)="toggleOption('showTimer')" name="showTimer" class="ml-2"> Timer</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showScenario" (change)="toggleOption('showScenario')" name="showScenario" class="ml-2"> Scenario</span>
+                                    <span class="nowrap"><input type="checkbox" [checked]="stream.options.showTurnTracker" (change)="toggleOption('showTurnTracker')" name="showTurnTracker" class="ml-2"> Turns</span>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.showPoints" (change)="toggleOption('showPoints')" name="showPoints" class="ml-2"> Points</span>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.showDice" (change)="toggleOption('showDice')" name="showDice" class="ml-2"> Dice</span>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.showLogo" (change)="toggleOption('showLogo')" name="showLogo" class="ml-2"> TTT Logo</span>
@@ -120,6 +143,34 @@
                                             <input [(ngModel)]="stream.options.cardSize" type="number" min="0.5" max="5" step="0.1" name="cardSize" class="form-control" (change)="setCardSize()">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="scenarioFontSize" class="col-sm-4 col-form-label">Scenario Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.scenarioFontSize" type="range" min="0.5" max="5" step="0.1" name="scenarioFontSize" class="form-control" (change)="setScenarioFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.scenarioFontSize" type="number" min="0.5" max="5" step="0.1" name="scenarioFontSize" class="form-control" (change)="setScenarioFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="turnTrackerFontSize" class="col-sm-4 col-form-label">Turn Size</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.turnTrackerFontSize" type="range" min="0.5" max="5" step="0.1" name="turnTrackerFontSize" class="form-control" (change)="setTurnTrackerFontSize()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.turnTrackerFontSize" type="number" min="0.5" max="5" step="0.1" name="turnTrackerFontSize" class="form-control" (change)="setTurnTrackerFontSize()">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="scenarioYAdjustment" class="col-sm-4 col-form-label">Scenario and Turn Vertical Adjustment</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.scenarioYAdjustment" type="range" min="-50" max="50" step="1" name="scenarioYAdjustment" class="form-control" (change)="setScenarioYAdjustment()">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input [(ngModel)]="stream.options.scenarioYAdjustment" type="number" min="-50" max="50" step="1" name="scenarioYAdjustment" class="form-control" (change)="setScenarioYAdjustment()">
+                                        </div>
+                                    </div>
+
                                     <hr>
                                     <h5>Ship Options</h5>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.shipIcons" (change)="toggleOption('shipIcons')" name="shipIcons" class="ml-2"> Ship Icons</span>&nbsp;
@@ -211,6 +262,38 @@
 
                 <div class="card text-white bg-dark mb-2">
                     <div class="card-header h4 d-flex justify-content-between">
+                        <div class="p-2 h4 mb-0">Turn Tracker</div>
+                        <div class="p-2 h4 mb-0">
+                            <app-turn-tracker-control-slim [options]="stream.options" (updatedOptions)="updateStreamOptions($event)"></app-turn-tracker-control-slim>
+                        </div>
+
+                        <div class="p-2 h4 mb-0">
+                            <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseTurnTracker" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseTurnTracker">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Turn Tracker: <a href="/stream/{{key}}/live/turntracker" target="blank">{{host}}/stream/{{key}}/live/turntracker</a></h5>
+                                    <hr>
+                                    <div class="form-group row mt-3">
+                                        <label for="turnNumberMax" class="col-sm-4 col-form-label">Maximum Turns</label>
+                                        <div class="col-sm-5">
+                                            <input [(ngModel)]="stream.options.turnNumberMax" type="number" min="1" max="100" step="1" name="turnNumberMax" class="form-control" (change)="setTurnNumberMax()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Turn Tracker Card -->
+
+                <div class="card text-white bg-dark mb-2">
+                    <div class="card-header h4 d-flex justify-content-between">
                         <div class="p-2 h4 mb-0">Cards &amp; Dials</div>
                         <div class="p-2 h4 mb-0">
                             <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#collapseCards" aria-expanded="false" aria-controls="collapseExample">
@@ -247,22 +330,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="collapse" id="collapseDice">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>
-                                        Player 1 Dice: <a href="/stream/{{key}}/live/dice/h/0" title="Player 1 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/0" title="Player 1 Standalone Dice Vertical"
-                                            target="blank">Vertical</a>
-                                    </h5>
-                                    <h5>
-                                        Player 2 Dice: <a href="/stream/{{key}}/live/dice/h/1" title="Player 2 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/1" title="Player 2 Standalone Dice Vertical"
-                                            target="blank">Vertical</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
+                    <div class="card-body collapse" id="collapseDice">
                         <div class="row">
                             <div class="col">
                                 <p>
@@ -286,7 +354,6 @@
                                     </span>
                                 </p>
                             </div>
-
                         </div>
                         <div class="row no-gutters">
                             <div class="col-md-5">
@@ -301,12 +368,25 @@
                                 <app-dice [dice]=stream.players[1].dice></app-dice>
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h5>
+                                    Player 1 Dice: <a href="/stream/{{key}}/live/dice/h/0" title="Player 1 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/0" title="Player 1 Standalone Dice Vertical"
+                                        target="blank">Vertical</a>
+                                </h5>
+                                <h5>
+                                    Player 2 Dice: <a href="/stream/{{key}}/live/dice/h/1" title="Player 2 Standalone Dice Horizontal" target="blank">Horizontal</a> / <a href="/stream/{{key}}/live/dice/v/1" title="Player 2 Standalone Dice Vertical"
+                                        target="blank">Vertical</a>
+                                </h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- End Dice Card -->
             </div>
             <div class="col-md-4">
-                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[1] [points]="stream.players[0].pointsLost" (updatedPlayer)="updatePlayer($event, 1)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[1] [opponent]=stream.players[0] [points]="stream.players[0].pointsLost" [maxPoints]="stream.options.maxPoints" (updatedPlayer)="updatePlayer($event, 1)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
             </div>
         </div>
     </div>

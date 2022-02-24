@@ -18,11 +18,8 @@
             </div>    
         </div>
     </form>
-  </div>
-  <div class="card-header">
-    <span class="pull-right h5 mr-2">Destroyed {{this.points}} / {{pointsToLead()}}</span>
     <h5 *ngIf="!showPlayerSubTextEditInput small">
-      <span (click)="showPlayerSubTextEditInput=true">{{player.subText}}<small><i class="fa fa-pencil text-secondary"></i></small></span>
+      <span (click)="showPlayerSubTextEditInput=true">{{player.subText}} <small><i class="fa fa-pencil text-secondary"></i></small></span>
     </h5>
     <form *ngIf="showPlayerSubTextEditInput" (submit)="updatePlayerSubText()">
         <div class="form-row">
@@ -34,6 +31,13 @@
             </div>    
         </div>
     </form>
+  </div>
+  <div class="card-header">
+    <span class="h6 mr-2">Scenario [
+    <span *ngIf="player.objectivePoints>0" (click)="decrementObjectivePoints()">-</span>
+    <span>{{player.objectivePoints}}</span>
+    <span (click)="incrementObjectivePoints()">+</span>] / Destroyed {{this.points}} / Total {{ this.points + player.objectivePoints }} / {{pointsToLead()}}</span>
+    
   </div>
   <div class="card-body"> 
     <ul class="list-group bg-dark">

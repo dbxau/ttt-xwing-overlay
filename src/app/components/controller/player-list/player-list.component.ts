@@ -21,7 +21,9 @@ import * as manifest from 'assets/plugins/xwing-data2/data/manifest.json';
 })
 export class PlayerListComponent implements OnInit {
   @Input() player: Player;
+  @Input() opponent: Player;
   @Input() points: number;
+  @Input() maxPoints: number;
   @Output() updatedPlayer = new EventEmitter<Player>();
   @Output() updatedCards = new EventEmitter<String[]>();
   @Output() updatedDial = new EventEmitter<Ship>();
@@ -128,19 +130,21 @@ export class PlayerListComponent implements OnInit {
     for (let ship of this.player.ships){
       if(!ship.enabled) {
         runningTotal += ship.points;
-      }else if((ship.hull+ship.shields) <= Math.floor((ship.starthull+ship.startshields)/2)){
+      }else if( ((ship.hull+ship.shields) <= Math.floor((ship.starthull+ship.startshields)/2)) || ship.hasLostHalfPoints ){
+        ship.hasLostHalfPoints = true;
         runningTotal += Math.ceil(ship.points/2);
       }
     }
+    runningTotal += this.maxPoints - this.player.listPoints;
     this.player.pointsLost = runningTotal;
     this.updateParent();
   }
 
   pointsToLead(){
-    if(this.player.pointsLost<this.points){
-      return 'Leading by ' + (this.points-this.player.pointsLost);
+    if(this.player.objectivePoints+this.opponent.pointsLost > this.opponent.objectivePoints+this.player.pointsLost){
+      return 'Leading by ' + (this.player.objectivePoints+this.opponent.pointsLost-this.opponent.objectivePoints-this.player.pointsLost);
     }else{
-      return 'Needs '+(this.player.pointsLost-this.points+1)+' to lead';
+      return 'Needs ' + (this.opponent.objectivePoints+this.player.pointsLost-this.player.objectivePoints-this.opponent.pointsLost+1)+' to lead';
     }
   }
 
@@ -148,8 +152,20 @@ export class PlayerListComponent implements OnInit {
     if(this.player.listPoints){
       return this.player.listPoints;
     }else{
-      return "-";
+      return 0;
     }
+  }
+
+  decrementObjectivePoints(){
+    if(this.player.objectivePoints > 0) {
+      this.player.objectivePoints--;
+    }
+    this.updateParent();
+  }
+
+  incrementObjectivePoints(){
+    this.player.objectivePoints++;
+    this.updateParent();
   }
 
 
@@ -163,6 +179,12 @@ export class PlayerListComponent implements OnInit {
       }
       this.player.ships = [];
 
+      if(x.points){
+        this.player.listPoints = x.points;
+      }else{
+        this.player.listPoints = 0;
+      }
+      
       try {
         for (let pilot of x.pilots) {
           //caters for mismatch between external xws and xwing-data2
@@ -227,6 +249,7 @@ export class PlayerListComponent implements OnInit {
                 pilot: singlePilotData,
                 pilotskill: singlePilotData.initiative,
                 points: (pilot.points != null) ? pilot.points : 0,
+                hasLostHalfPoints: false,
                 hull: singleShipData.stats.find(element=>{ if (element.type === "hull") return element; }).value,
                 shields: (singleShipData.stats.find(element=>{ if (element.type === "shields") return element; }) === undefined ? 0 : singleShipData.stats.find(element=>{ if (element.type === "shields") return element; }).value),
                 upgrades: [],
@@ -335,7 +358,8 @@ export class PlayerListComponent implements OnInit {
               };
               newShip.starthull = newShip.hull;
               newShip.startshields = newShip.shields;
-              console.log(newShip);
+              //console.log(newShip);
+
               
               this.player.ships.push(newShip);
               this.calcPointsLost(); 
@@ -346,10 +370,6 @@ export class PlayerListComponent implements OnInit {
       catch(e){
         this.xwsErrorDisplay = e;
       } 
-      
-      if(x.points){
-        this.player.listPoints = x.points;
-      }
   }
 
   onSubmitXws({value, valid}){

@@ -12,13 +12,17 @@
             </div> 
         </div>
         <div class="col-md-6 text-centre">
-            <div class="d-flex justify-content-between">
-                <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-left">{{stream.players[1].pointsLost}} Points</div>
-                <div class="d-flex flex-column justify-content-start">
-                    <div class="p-2 timer"><app-playback-timer *ngIf='stream.options.showTimer' [timer]='stream.timer' [size]='stream.timer.size'></app-playback-timer></div>   
+            <div class="flex-row" [style.margin-bottom.px]="stream.options.scenarioYAdjustment-20">
+                <div class="d-flex justify-content-between">
+                    <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-left">{{stream.players[1].pointsLost+stream.players[0].objectivePoints}} Points</div>
+                    <div class="d-flex flex-column justify-content-start">
+                        <div class="p-2 timer"><app-playback-timer *ngIf='stream.options.showTimer' [timer]='stream.timer' [size]='stream.timer.size'></app-playback-timer></div>
+                    </div>
+                    <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-right">{{stream.players[0].pointsLost+stream.players[1].objectivePoints}} Points</div>
                 </div>
-                <div [ngStyle]="{'visibility': stream.options.showPoints ? 'visible' : 'hidden'}" class="p-2 h4 player-points player-points-right">{{stream.players[0].pointsLost}} Points</div>
             </div>
+            <div class="flex-row text-center scenarioName" [style.font-size.em]="stream.options.scenarioFontSize" *ngIf='stream.options.showScenario'>{{stream.options.scenarioName}}</div>  
+            <div class="flex-row text-center turnTracker" [style.font-size.em]="stream.options.turnTrackerFontSize" *ngIf='stream.options.showTurnTracker'>Turn {{stream.options.turnNumber}}/{{stream.options.turnNumberMax}}</div>  
         </div>
         <div class="col-md-3 text-right">
             <app-playback-player-name [player]='stream.players[1]' [options]=stream.options [isRight]=true></app-playback-player-name>

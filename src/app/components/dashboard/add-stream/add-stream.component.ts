@@ -18,12 +18,14 @@ export class AddStreamComponent implements OnInit {
       {
         name: 'Player 1',
         subText: 'Subtitle',
-        pointsLost: 0
+        pointsLost: 0,
+        objectivePoints: 0
       },
       {
         name: 'Player 2',
         subText: 'Subtitle',
-        pointsLost: 0
+        pointsLost: 0,
+        objectivePoints: 0
       }
     ],
     options: {
@@ -51,6 +53,15 @@ export class AddStreamComponent implements OnInit {
       shipPSLocation:"icon",
       shipDestroyedStrikethrough: false,
       shipDestroyedOpacity: 0.5,
+      maxPoints: 20,
+      scenarioName: "",
+      showScenario:true,
+      scenarioFontSize:1.5,
+      scenarioYAdjustment:0,
+      turnNumber:0,
+      turnNumberMax:12,
+      showTurnTracker:true,
+      turnTrackerFontSize:1.5
 
     },
     timer: {

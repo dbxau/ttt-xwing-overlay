@@ -108,6 +108,11 @@ export class ShipComponent implements OnInit {
     this.updateParent();
   }
 
+  hasLostHalfPointsReset(){
+    this.ship.hasLostHalfPoints = false;
+    this.updateParent();
+  }
+
   addCrit(critName:string){
     if(!this.ship.hasOwnProperty('crits')){
       this.ship.crits = new Array<string>();

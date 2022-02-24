@@ -28,6 +28,7 @@ export interface Ship{
     pilot?:Pilot;
     pilotskill?:number;
     points?:number;
+    hasLostHalfPoints?:boolean;
     hull?:number;
     starthull?:number;
     shields?:number;
@@ -41,6 +42,7 @@ export interface Ship{
     faction?:string;
     force?:number;
     dial?:string[];
+    
 }
 
 
@@ -54,6 +56,7 @@ export interface Player{
     pointsLost?:number;
     faction?:string;
     hasInitiative?:boolean;
+    objectivePoints?:number;
 }
 
 export interface Timer{
@@ -90,7 +93,17 @@ export interface Options{
     shipPSLocation?:string,
     showSubText?:boolean,
     shipDestroyedStrikethrough?:boolean,
-    shipDestroyedOpacity?:number;
+    shipDestroyedOpacity?:number,
+    maxPoints?:number,
+    scenarioName?:string,
+    showScenario?:boolean,
+    scenarioFontSize?:number,
+    scenarioYAdjustment?:number,
+    turnNumber?:number,
+    turnNumberMax?:number,
+    showTurnTracker?:boolean,
+    turnTrackerFontSize?:number;
+
 }
 
 export interface Stream{

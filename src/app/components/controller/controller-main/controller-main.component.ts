@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { StreamService } from '../../../services/stream.service';
 import { AuthService } from "../../../core/auth.service";
 
-import { Stream, Player, Ship, Timer } from '../../../models/Stream';
+import { Stream, Options, Player, Ship, Timer } from '../../../models/Stream';
 
 
 
@@ -122,6 +122,10 @@ export class ControllerMainComponent implements OnInit {
     this.updateStreamToParent();
   }
 
+  updateStreamScenarioName(){
+    this.updateStreamToParent();
+  }
+
   setShipFontSize(){
     this.updateStreamToParent();
   }
@@ -130,11 +134,31 @@ export class ControllerMainComponent implements OnInit {
     this.updateStreamToParent();
   }
 
+  setTurnTrackerFontSize(){
+    this.updateStreamToParent();
+  }
+  
+  setTurnNumberMax(){
+    this.updateStreamToParent();
+  }
+
+  setScenarioFontSize(){
+    this.updateStreamToParent();
+  }
+
+  setScenarioYAdjustment(){
+    this.updateStreamToParent();
+  }
+
   setTimerSize(){
     this.updateStreamToParent();
   }
 
   setCardSize(){
+    this.updateStreamToParent();
+  }
+
+  setMaxPoints(){
     this.updateStreamToParent();
   }
   
@@ -201,6 +225,11 @@ export class ControllerMainComponent implements OnInit {
 
   updateStreamTimer(updatedTimer:Timer) {
     this.stream.timer = updatedTimer;
+    this.updateStreamToParent();
+  }
+
+  updateStreamOptions(updatedOptions:Options) {
+    this.stream.options = updatedOptions;
     this.updateStreamToParent();
   }
 

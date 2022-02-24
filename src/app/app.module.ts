@@ -59,6 +59,8 @@ import { ShipUpgradeComponent } from './components/controller/ship-upgrade/ship-
 import { DialManeuverComponent } from './components/common/dial-maneuver/dial-maneuver.component';
 import { DialSheetComponent } from './components/common/dial-sheet/dial-sheet.component';
 import { PlaybackCardsStandaloneComponent } from './components/playback/playback-cards-standalone/playback-cards-standalone.component';
+import { TurnTrackerControlSlimComponent } from './components/controller/turn-tracker-control-slim/turn-tracker-control-slim.component';
+import { PlaybackTurnTrackerStandaloneComponent } from './components/playback/playback-turn-tracker-standalone/playback-turn-tracker-standalone.component';
 
 
 
@@ -99,7 +101,9 @@ export const firebaseConfig = environment.firebaseConfig;
     ShipUpgradeComponent,
     DialManeuverComponent,
     DialSheetComponent,
-    PlaybackCardsStandaloneComponent
+    PlaybackCardsStandaloneComponent,
+    TurnTrackerControlSlimComponent,
+    PlaybackTurnTrackerStandaloneComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),

@@ -2,7 +2,8 @@
     <i [(colorPicker)]=ship.color  [cpOKButton]=true  [style.color]=ship.color  (colorPickerSelect)="handleColorChange($event)" class='xwing-miniatures-ship xwing-miniatures-ship-{{getShipIcon(ship.xws)}}' title={{ship.name}}></i> 
     <span *ngIf="!editShipName" (click)=handleShipNameClick() [style.text-decoration]="ship.enabled ? '' : 'line-through' ">{{ship.pilot.name}}</span> <small><i *ngIf="!editShipName" class="fa fa-pencil text-secondary" (click)="editShipName = true"></i></small>
     <input *ngIf="editShipName" type="text" [(ngModel)]="ship.pilot.name" class="form-control-sm"> <button *ngIf="editShipName" (click)="handleShipNameEdit()" class="btn btn-success btn-sm">Save</button>
-    <small>({{halfPoints()}}/{{ship.points}})</small>
+    <small title="Half points/Full points">(<span [style.textDecoration]="ship.hasLostHalfPoints ? 'underline' : '' ">{{halfPoints()}}</span>/{{ship.points}})</small><small *ngIf="ship.hasLostHalfPoints" (click)=hasLostHalfPointsReset() title="Reset half points"><i class="fa fa-undo text-secondary"></i></small>
+    
 </h5>
 <div class="btn-toolbar" role="toolbar">
     <div class="btn-group mr-2" role="group">
