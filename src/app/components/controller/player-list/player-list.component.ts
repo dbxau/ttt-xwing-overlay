@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //import { StreamService } from '../../../services/stream.service';
-import { Player, Ship, Upgrade } from '../../../models/Stream'
+import { Options, Player, Ship, Upgrade } from '../../../models/Stream'
 import { log } from 'util';
 
 declare var $:any;
@@ -24,6 +24,7 @@ export class PlayerListComponent implements OnInit {
   @Input() opponent: Player;
   @Input() points: number;
   @Input() maxPoints: number;
+  @Input() options: Options;
   @Output() updatedPlayer = new EventEmitter<Player>();
   @Output() updatedCards = new EventEmitter<String[]>();
   @Output() updatedDial = new EventEmitter<Ship>();
@@ -130,9 +131,9 @@ export class PlayerListComponent implements OnInit {
     for (let ship of this.player.ships){
       if(!ship.enabled) {
         runningTotal += ship.points;
-      }else if( ((ship.hull+ship.shields) <= Math.floor((ship.starthull+ship.startshields)/2)) || ship.hasLostHalfPoints ){
+      }else if( (((ship.hull+ship.shields) <= Math.floor((ship.starthull+ship.startshields)/2)) || ship.hasLostHalfPoints) && this.options.scoringHalfHealthShips=="Half"){
         ship.hasLostHalfPoints = true;
-        runningTotal += Math.ceil(ship.points/2);
+        runningTotal += Math.floor(ship.points/2);
       }
     }
     runningTotal += this.maxPoints - this.player.listPoints;

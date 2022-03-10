@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 ">
-                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[0] [opponent]=stream.players[1] [points]="stream.players[1].pointsLost" [maxPoints]="stream.options.maxPoints" (updatedPlayer)="updatePlayer($event, 0)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[0] [opponent]=stream.players[1] [points]="stream.players[1].pointsLost" [maxPoints]="stream.options.maxPoints" [options]="stream.options" (updatedPlayer)="updatePlayer($event, 0)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
             </div>
             <div class="col-md-4 text-center p-xs-3 p-md-2 p-lg-1">
                 <div class="card text-white bg-dark mb-2 mt-1">
@@ -84,6 +84,20 @@
                                         </div>
                                     </div>
                                     <input [(ngModel)]="stream.options.scenarioName" type="text" name="scenarioName" class="form-control" (change)="updateStreamScenarioName()">
+                                    <br>
+                                    <h6>Scenario: <a href="/stream/{{key}}/live/scenario" target="blank">{{host}}/stream/{{key}}/live/scenario</a></h6>
+                                    <br>
+                                    <h6>Scoring Options</h6>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label for="scoringHalfHealthShipsSelect" class="col-sm-6 col-form-label">Ships reduced to half health are worth</label>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='stream.options.scoringHalfHealthShips' (change)="updateStreamScoring()" name="scoringHalfHealthShipsSelect" class="form-control form-control-sm">
+                                                <option value="Half">Half Points</option>
+                                                <option value="Zero">Zero Points</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <hr>
                                     <h5>UI Options</h5>
                                     <span class="nowrap"><input type="checkbox" [checked]="stream.options.dropShadow" (change)="toggleOption('dropShadow')" name="dropShadow"> Drop Shadow</span>
@@ -386,7 +400,7 @@
                 <!-- End Dice Card -->
             </div>
             <div class="col-md-4">
-                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[1] [opponent]=stream.players[0] [points]="stream.players[0].pointsLost" [maxPoints]="stream.options.maxPoints" (updatedPlayer)="updatePlayer($event, 1)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
+                <app-player-list *ngIf="stream.players?.length > 0;" [player]=stream.players[1] [opponent]=stream.players[0] [points]="stream.players[0].pointsLost" [maxPoints]="stream.options.maxPoints" [options]="stream.options" (updatedPlayer)="updatePlayer($event, 1)" (updatedCards)="updateCards($event)" (updatedDial)="updateDial($event)"></app-player-list>
             </div>
         </div>
     </div>

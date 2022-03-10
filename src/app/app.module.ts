@@ -61,6 +61,7 @@ import { DialSheetComponent } from './components/common/dial-sheet/dial-sheet.co
 import { PlaybackCardsStandaloneComponent } from './components/playback/playback-cards-standalone/playback-cards-standalone.component';
 import { TurnTrackerControlSlimComponent } from './components/controller/turn-tracker-control-slim/turn-tracker-control-slim.component';
 import { PlaybackTurnTrackerStandaloneComponent } from './components/playback/playback-turn-tracker-standalone/playback-turn-tracker-standalone.component';
+import { PlaybackScenarioStandaloneComponent } from './components/playback/playback-scenario-standalone/playback-scenario-standalone.component';
 
 
 
@@ -103,7 +104,8 @@ export const firebaseConfig = environment.firebaseConfig;
     DialSheetComponent,
     PlaybackCardsStandaloneComponent,
     TurnTrackerControlSlimComponent,
-    PlaybackTurnTrackerStandaloneComponent
+    PlaybackTurnTrackerStandaloneComponent,
+    PlaybackScenarioStandaloneComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),

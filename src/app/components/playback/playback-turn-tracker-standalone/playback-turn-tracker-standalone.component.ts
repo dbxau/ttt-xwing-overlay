@@ -40,6 +40,7 @@ export class PlaybackTurnTrackerStandaloneComponent implements OnInit {
     //get stream
     this.streamService.getStream(this.key).valueChanges().subscribe(stream => {
       this.stream = stream;
+      console.log(this.stream);
       if (typeof this.stream.players[0].ships === 'undefined') {
         this.stream.players[0].ships = [];
       }

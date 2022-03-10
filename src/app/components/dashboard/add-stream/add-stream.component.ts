@@ -61,7 +61,8 @@ export class AddStreamComponent implements OnInit {
       turnNumber:0,
       turnNumberMax:12,
       showTurnTracker:true,
-      turnTrackerFontSize:1.5
+      turnTrackerFontSize:1.5,
+      scoringHalfHealthShips:'Half'
 
     },
     timer: {

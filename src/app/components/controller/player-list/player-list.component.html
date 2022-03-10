@@ -33,11 +33,13 @@
     </form>
   </div>
   <div class="card-header">
-    <span class="h6 mr-2">Scenario [
-    <span *ngIf="player.objectivePoints>0" (click)="decrementObjectivePoints()">-</span>
-    <span>{{player.objectivePoints}}</span>
-    <span (click)="incrementObjectivePoints()">+</span>] / Destroyed {{this.points}} / Total {{ this.points + player.objectivePoints }} / {{pointsToLead()}}</span>
+    <h6 class="mr-2 text-center">Scenario {{player.objectivePoints}} / Destroyed {{this.points}} / Total {{ this.points + player.objectivePoints }} / {{pointsToLead()}}</h6>
     
+    <h6 class="mr-2 text-center">
+      Scenario Points: {{player.objectivePoints}} 
+      <button *ngIf="player.objectivePoints>0" (click)="decrementObjectivePoints()" class="btn btn-secondary btn-sm"><i class="fa fa-minus"></i></button>
+      <button (click)="incrementObjectivePoints()" class="btn btn-secondary btn-sm"><i class="fa fa-plus"></i></button>
+    </h6>
   </div>
   <div class="card-body"> 
     <ul class="list-group bg-dark">

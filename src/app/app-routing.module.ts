@@ -12,6 +12,7 @@ import { PlaybackTurnTrackerStandaloneComponent } from './components/playback/pl
 import { PlaybackDiceVerticalStandaloneComponent } from './components/playback/playback-dice-vertical-standalone/playback-dice-vertical-standalone.component';
 import { PlaybackDiceHorizontalStandaloneComponent } from './components/playback/playback-dice-horizontal-standalone/playback-dice-horizontal-standalone.component';
 import { PlaybackCardsStandaloneComponent } from './components/playback/playback-cards-standalone/playback-cards-standalone.component';
+import { PlaybackScenarioStandaloneComponent } from './components/playback/playback-scenario-standalone/playback-scenario-standalone.component';
 
 
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     {path:'stream/:id/live', component:PlaybackMainComponent},
     {path:'stream/:id/live/timer', component:PlaybackTimerStandaloneComponent},
     {path:'stream/:id/live/turntracker', component:PlaybackTurnTrackerStandaloneComponent},
+    {path:'stream/:id/live/scenario', component:PlaybackScenarioStandaloneComponent},
     {path:'stream/:id/live/cards', component:PlaybackCardsStandaloneComponent},
     {path:'stream/:id/live/dice/v/:playerindex', component:PlaybackDiceVerticalStandaloneComponent},
     {path:'stream/:id/live/dice/h/:playerindex', component:PlaybackDiceHorizontalStandaloneComponent},

@@ -153,6 +153,6 @@ export class ShipComponent implements OnInit {
   }
 
   halfPoints(){
-    return Math.ceil(this.ship.points/2);
+    return Math.floor(this.ship.points/2);
   }
 }
