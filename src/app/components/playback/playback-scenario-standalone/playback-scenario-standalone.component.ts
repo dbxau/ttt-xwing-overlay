@@ -47,7 +47,12 @@ export class PlaybackScenarioStandaloneComponent implements OnInit {
       if (typeof this.stream.players[1].ships === 'undefined') {
         this.stream.players[1].ships = [];
       }
+      document.body.className="";
+      document.body.classList.add(this.stream.options.font);
+  
+      document.getElementById("playback-body").style.setProperty("color", this.stream.options.textColor, "important");
     });
+
   }
 
 }
