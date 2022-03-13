@@ -809,7 +809,7 @@ i.xwing-miniatures-ship-tierbheavy:before {
 i.xwing-miniatures-ship-tiereaper:before {
   content: "V"; }
 
-i.xwing-miniatures-ship-tiesabomber:before {
+i.xwing-miniatures-ship-tiesebomber:before {
   content: "B"; }
 
 i.xwing-miniatures-ship-tiesffighter:before {
@@ -850,3 +850,9 @@ i.xwing-miniatures-ship-yv666lightfreighter:before {
 
 i.xwing-miniatures-ship-z95af4headhunter:before {
   content: "z"; }
+
+i.xwing-miniatures-ship-tiewiwhispermodifiedinterceptor:before {
+  content: "#"; }
+
+i.xwing-miniatures-ship-btanr2ywing:before {
+  content: "{"; }
