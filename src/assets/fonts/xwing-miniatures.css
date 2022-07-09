@@ -866,3 +866,9 @@ i.xwing-miniatures-ship-clonez95headhunter:before {
 i.xwing-miniatures-ship-rogueclassstarfighter:before {
   content: "}"; }
     
+i.xwing-miniatures-ship-gauntletfighter:before {
+  content: "~"; }
+  
+i.xwing-miniatures-ship-st70assaultship:before {
+  content: "¡"; }
+      
