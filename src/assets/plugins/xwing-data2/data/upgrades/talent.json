@@ -249,7 +249,7 @@
         "ffg": 237
       }
     ],
-    "cost": { "value": 7 },
+    "cost": { "value": 6 },
     "restrictions": [{ "sizes": ["Small", "Medium"] }],
     "standard": true,
     "extended": true,
@@ -311,7 +311,7 @@
         "ffg": 240
       }
     ],
-    "cost": { "value": 6 },
+    "cost": { "value": 12 },
     "standard": true,
     "extended": true,
     "epic": true
@@ -421,7 +421,7 @@
         "ffg": 245
       }
     ],
-    "cost": { "value": 8 },
+    "cost": { "value": 6 },
     "standard": true,
     "extended": true,
     "epic": true
@@ -797,7 +797,7 @@
         "artwork": "https://squadbuilder.fantasyflightgames.com/card_art/a1b35914e278f332b59e04749c90452c.jpg"
       }
     ],
-    "cost": { "value": 1 },
+    "cost": { "value": 0 },
     "standard": true,
     "extended": true,
     "epic": true
@@ -835,6 +835,7 @@
         "title": "Clan Training",
         "type": "Talent",
         "ability": "Before you engage, if you are not focused and there is an enemy ship in your [Front Arc] at range 1, you may spend 1 [Charge] to perform a red [Focus] action. After you perform an attack, if the defender is destroyed, recover 1 [Charge].",
+        "charges": { "value": 1, "recovers": 0 },
         "slots": ["Talent"],
         "image": "https://infinitearenas.com/xw2/images/upgrades/clantraining.png",
         "artwork": "???"
@@ -881,7 +882,7 @@
         "artwork": "???"
       }
     ],
-    "cost": { "value": 2 },
+    "cost": { "value": 5 },
     "standard": true,
     "extended": true,
     "epic": true
